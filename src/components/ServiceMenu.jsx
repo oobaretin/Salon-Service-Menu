@@ -465,6 +465,7 @@ Thank you!`;
       clientPhone: formData.get('clientPhone'),
       clientEmail: formData.get('clientEmail'),
       preferredDate: formData.get('preferredDate'),
+      preferredTime: formData.get('preferredTime'),
       notes: formData.get('notes')
     };
 
@@ -485,6 +486,7 @@ Name: ${serviceDetails.clientName}
 Phone: ${serviceDetails.clientPhone}
 Email: ${serviceDetails.clientEmail}
 Preferred Date: ${serviceDetails.preferredDate || 'Flexible'}
+Preferred Time: ${serviceDetails.preferredTime || 'Flexible'}
 Notes: ${serviceDetails.notes || 'None'}
 
 Please let me know your availability and confirm the appointment.
@@ -671,20 +673,9 @@ Please let me know your availability!`;
                                 <Clock size={14} className="mr-1" />
                                 {variation.duration}
                               </div>
-                              <div className="flex items-center justify-between">
-                                <div className="flex items-center space-x-2 text-purple-600 font-semibold">
-                                  <Calendar size={16} />
-                                  <span>Click to Book</span>
-                                </div>
-                                <button
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleDirectBooking(subcategory, variation);
-                                  }}
-                                  className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
-                                >
-                                  Book Now
-                                </button>
+                              <div className="flex items-center justify-center space-x-2 text-purple-600 font-semibold">
+                                <Calendar size={16} />
+                                <span>Click to Book</span>
                               </div>
                             </div>
                           ))}
@@ -802,6 +793,39 @@ Please let me know your availability!`;
                     name="preferredDate"
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Preferred Time
+                  </label>
+                  <select
+                    name="preferredTime"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  >
+                    <option value="">Select a time</option>
+                    <option value="9:00 AM">9:00 AM</option>
+                    <option value="9:30 AM">9:30 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="10:30 AM">10:30 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="11:30 AM">11:30 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="12:30 PM">12:30 PM</option>
+                    <option value="1:00 PM">1:00 PM</option>
+                    <option value="1:30 PM">1:30 PM</option>
+                    <option value="2:00 PM">2:00 PM</option>
+                    <option value="2:30 PM">2:30 PM</option>
+                    <option value="3:00 PM">3:00 PM</option>
+                    <option value="3:30 PM">3:30 PM</option>
+                    <option value="4:00 PM">4:00 PM</option>
+                    <option value="4:30 PM">4:30 PM</option>
+                    <option value="5:00 PM">5:00 PM</option>
+                    <option value="5:30 PM">5:30 PM</option>
+                    <option value="6:00 PM">6:00 PM</option>
+                    <option value="6:30 PM">6:30 PM</option>
+                    <option value="7:00 PM">7:00 PM</option>
+                  </select>
                 </div>
 
                 <div>
