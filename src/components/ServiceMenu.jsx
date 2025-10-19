@@ -8,7 +8,12 @@ const SALON_INFO = {
   email: "booking@elitebraids.com",
   address: "123 Beauty Lane, Style City, SC 12345",
   hours: "Mon-Sat: 9AM-7PM, Sun: 10AM-5PM",
-  bookingUrl: "https://calendly.com/elitebraids", // ← Change this to your client's booking URL
+  bookingUrl: "https://wa.me/15551234567", // ← WhatsApp (most popular for hairstylists)
+  // Alternative booking options:
+  // bookingUrl: "tel:+15551234567", // ← Direct phone call
+  // bookingUrl: "https://square.site/book/YOURCODE/business", // ← Square Appointments
+  // bookingUrl: "https://booksy.com/en-us/yourbusiness", // ← Booksy
+  // bookingUrl: "https://www.vagaro.com/yourbusiness", // ← Vagaro
   website: "https://elitebraids.com",
   instagram: "@elitebraids",
   description: "Professional braiding services with premium products and expert stylists"
@@ -418,6 +423,31 @@ const ServiceMenu = () => {
     setShowBookingModal(true);
   };
 
+  const handleDirectBooking = (serviceName, variation) => {
+    // Direct booking - WhatsApp with pre-filled message
+    let bookingUrl = SALON_INFO.bookingUrl;
+    
+    if (bookingUrl.includes('wa.me')) {
+      // WhatsApp booking with pre-filled message
+      const message = `Hi! I'd like to book a ${serviceName} - ${variation.name} for $${variation.price} (${variation.duration}). When are you available?`;
+      const encodedMessage = encodeURIComponent(message);
+      bookingUrl = `${SALON_INFO.bookingUrl}?text=${encodedMessage}`;
+    } else if (bookingUrl.includes('tel:')) {
+      // Direct phone call
+      bookingUrl = SALON_INFO.bookingUrl;
+    } else {
+      // Other booking platforms
+      const url = new URL(bookingUrl);
+      url.searchParams.set('service', serviceName);
+      url.searchParams.set('variation', variation.name);
+      url.searchParams.set('price', variation.price);
+      url.searchParams.set('duration', variation.duration);
+      bookingUrl = url.toString();
+    }
+    
+    window.open(bookingUrl, '_blank');
+  };
+
   const handleBookingSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -433,13 +463,49 @@ const ServiceMenu = () => {
       notes: formData.get('notes')
     };
 
-    // Redirect to booking platform with service details
-    const bookingUrl = new URL(SALON_INFO.bookingUrl);
-    bookingUrl.searchParams.set('service', serviceDetails.service);
-    bookingUrl.searchParams.set('variation', serviceDetails.variation);
-    bookingUrl.searchParams.set('price', serviceDetails.price);
+    // Create booking URL with service details
+    let bookingUrl = SALON_INFO.bookingUrl;
     
-    window.open(bookingUrl.toString(), '_blank');
+    // For WhatsApp, create a detailed message
+    if (bookingUrl.includes('wa.me')) {
+      const message = `Hi! I'd like to book an appointment:
+
+Service: ${serviceDetails.service} - ${serviceDetails.variation}
+Price: $${serviceDetails.price}
+Duration: ${serviceDetails.duration}
+Name: ${serviceDetails.clientName}
+Phone: ${serviceDetails.clientPhone}
+Email: ${serviceDetails.clientEmail}
+Preferred Date: ${serviceDetails.preferredDate || 'Flexible'}
+Notes: ${serviceDetails.notes || 'None'}
+
+Please let me know your availability!`;
+      const encodedMessage = encodeURIComponent(message);
+      bookingUrl = `${SALON_INFO.bookingUrl}?text=${encodedMessage}`;
+    }
+    // For phone calls
+    else if (bookingUrl.includes('tel:')) {
+      bookingUrl = SALON_INFO.bookingUrl;
+    }
+    // For Square Appointments
+    else if (bookingUrl.includes('square.site')) {
+      const url = new URL(bookingUrl);
+      url.searchParams.set('service', serviceDetails.service);
+      url.searchParams.set('variation', serviceDetails.variation);
+      url.searchParams.set('price', serviceDetails.price);
+      bookingUrl = url.toString();
+    }
+    // For other booking platforms
+    else {
+      const url = new URL(bookingUrl);
+      url.searchParams.set('service', serviceDetails.service);
+      url.searchParams.set('variation', serviceDetails.variation);
+      url.searchParams.set('price', serviceDetails.price);
+      url.searchParams.set('duration', serviceDetails.duration);
+      bookingUrl = url.toString();
+    }
+    
+    window.open(bookingUrl, '_blank');
     setShowBookingModal(false);
     setSelectedService(null);
   };
@@ -594,9 +660,20 @@ const ServiceMenu = () => {
                                 <Clock size={14} className="mr-1" />
                                 {variation.duration}
                               </div>
-                              <div className="flex items-center justify-center space-x-2 text-purple-600 font-semibold">
-                                <Calendar size={16} />
-                                <span>Click to Book</span>
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-2 text-purple-600 font-semibold">
+                                  <Calendar size={16} />
+                                  <span>Click to Book</span>
+                                </div>
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleDirectBooking(subcategory, variation);
+                                  }}
+                                  className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
+                                >
+                                  Book Now
+                                </button>
                               </div>
                             </div>
                           ))}
