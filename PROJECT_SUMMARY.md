@@ -207,3 +207,4 @@ Your salon service menu includes:
 If you need help customizing for specific clients or adding new features, all the code is well-documented and follows React best practices. The modular structure makes it easy to extend and modify.
 
 **Happy coding! ✨**
+

@@ -221,3 +221,4 @@ export const POPULAR_SERVICES = [
   "Wash & Style",
   "Hair Coloring"
 ];
+

@@ -213,3 +213,4 @@ Your salon service menu is now live and ready to help salons:
 - ✅ **Mobile-friendly** for customers on the go
 
 **Your clients will love it! 🚀✨**
+
