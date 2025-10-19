@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronRight, Clock, Calendar, Phone, Mail, MapPin } from 'lucide-react';
+import AdvancedBookingModal from './AdvancedBookingModal';
 
 // 🎯 CUSTOMIZE THIS DATA FOR EACH CLIENT
 const SALON_INFO = {
@@ -390,6 +391,7 @@ const ServiceMenu = () => {
   const [expandedVariations, setExpandedVariations] = useState({});
   const [selectedService, setSelectedService] = useState(null);
   const [showBookingModal, setShowBookingModal] = useState(false);
+  const [bookingSuccess, setBookingSuccess] = useState(false);
 
   const toggleCategory = (category) => {
     if (selectedCategory === category) {
@@ -419,6 +421,13 @@ const ServiceMenu = () => {
   const handleBookingClick = (serviceName, variation) => {
     setSelectedService({ serviceName, variation });
     setShowBookingModal(true);
+  };
+
+  const handleBookingSuccess = (bookingData) => {
+    setBookingSuccess(true);
+    setShowBookingModal(false);
+    // You can add additional success handling here
+    console.log('Booking successful:', bookingData);
   };
 
   const handleDirectBooking = (serviceName, variation) => {
@@ -860,6 +869,15 @@ Please let me know your availability!`;
           </div>
         </div>
       )}
+
+      {/* Advanced Booking Modal */}
+      <AdvancedBookingModal
+        isOpen={showBookingModal}
+        onClose={() => setShowBookingModal(false)}
+        selectedService={selectedService}
+        salonInfo={SALON_INFO}
+        onBookingSuccess={handleBookingSuccess}
+      />
     </div>
   );
 };
