@@ -592,43 +592,32 @@ const SalonServiceMenu = () => {
 
                     {isExpanded && (
                       <div className="bg-white p-5">
-                        <button
-                          onClick={() => toggleVariations(variationKey)}
-                          className="w-full mb-4 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity"
-                        >
-                          {showVariations ? 'Hide' : 'Show'} All Variations ({data.variations.length})
-                        </button>
-
-                        {showVariations && (
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {data.variations.map((variation, idx) => (
-                              <div
-                                key={idx}
-                                className="border-2 border-purple-200 rounded-lg p-4 hover:bg-purple-50 transition-colors"
-                              >
-                                <div className="flex justify-between items-start mb-2">
-                                  <h4 className="font-semibold text-gray-800 flex-1">
-                                    {variation.name}
-                                  </h4>
-                                  <span className="text-purple-600 font-bold text-lg ml-2">
-                                    ${variation.price}
-                                  </span>
-                                </div>
-                                <div className="flex items-center text-sm text-gray-600 mb-3">
-                                  <Clock size={14} className="mr-1" />
-                                  {variation.duration}
-                                </div>
-                                <button
-                                  onClick={() => handleBookingClick(subcategory, variation)}
-                                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center space-x-2"
-                                >
-                                  <Calendar size={16} />
-                                  <span>Book Now</span>
-                                </button>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          {data.variations.map((variation, idx) => (
+                            <div
+                              key={idx}
+                              onClick={() => handleBookingClick(subcategory, variation)}
+                              className="border-2 border-purple-200 rounded-lg p-4 hover:bg-purple-50 hover:border-purple-400 cursor-pointer transition-all duration-200 hover:shadow-md"
+                            >
+                              <div className="flex justify-between items-start mb-2">
+                                <h4 className="font-semibold text-gray-800 flex-1">
+                                  {variation.name}
+                                </h4>
+                                <span className="text-purple-600 font-bold text-lg ml-2">
+                                  ${variation.price}
+                                </span>
                               </div>
-                            ))}
-                          </div>
-                        )}
+                              <div className="flex items-center text-sm text-gray-600 mb-3">
+                                <Clock size={14} className="mr-1" />
+                                {variation.duration}
+                              </div>
+                              <div className="flex items-center justify-center space-x-2 text-purple-600 font-semibold">
+                                <Calendar size={16} />
+                                <span>Click to Book</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
