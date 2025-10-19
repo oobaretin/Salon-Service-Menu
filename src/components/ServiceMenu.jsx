@@ -8,12 +8,10 @@ const SALON_INFO = {
   email: "booking@elitebraids.com",
   address: "123 Beauty Lane, Style City, SC 12345",
   hours: "Mon-Sat: 9AM-7PM, Sun: 10AM-5PM",
-  bookingUrl: "https://wa.me/15551234567", // ← WhatsApp (most popular for hairstylists)
+  bookingUrl: "mailto:booking@elitebraids.com", // ← Email booking (works with Gmail, Outlook, etc.)
   // Alternative booking options:
+  // bookingUrl: "https://wa.me/15551234567", // ← WhatsApp
   // bookingUrl: "tel:+15551234567", // ← Direct phone call
-  // bookingUrl: "https://square.site/book/YOURCODE/business", // ← Square Appointments
-  // bookingUrl: "https://booksy.com/en-us/yourbusiness", // ← Booksy
-  // bookingUrl: "https://www.vagaro.com/yourbusiness", // ← Vagaro
   website: "https://elitebraids.com",
   instagram: "@elitebraids",
   description: "Professional braiding services with premium products and expert stylists"
@@ -424,10 +422,25 @@ const ServiceMenu = () => {
   };
 
   const handleDirectBooking = (serviceName, variation) => {
-    // Direct booking - WhatsApp with pre-filled message
+    // Direct booking - Email with pre-filled subject and body
     let bookingUrl = SALON_INFO.bookingUrl;
     
-    if (bookingUrl.includes('wa.me')) {
+    if (bookingUrl.includes('mailto:')) {
+      // Email booking with pre-filled subject and body
+      const subject = `Book ${serviceName} - ${variation.name}`;
+      const body = `Hi! I'd like to book an appointment:
+
+Service: ${serviceName} - ${variation.name}
+Price: $${variation.price}
+Duration: ${variation.duration}
+
+Please let me know your availability and I'll provide my contact details.
+
+Thank you!`;
+      const encodedSubject = encodeURIComponent(subject);
+      const encodedBody = encodeURIComponent(body);
+      bookingUrl = `${SALON_INFO.bookingUrl}?subject=${encodedSubject}&body=${encodedBody}`;
+    } else if (bookingUrl.includes('wa.me')) {
       // WhatsApp booking with pre-filled message
       const message = `Hi! I'd like to book a ${serviceName} - ${variation.name} for $${variation.price} (${variation.duration}). When are you available?`;
       const encodedMessage = encodeURIComponent(message);
@@ -435,14 +448,6 @@ const ServiceMenu = () => {
     } else if (bookingUrl.includes('tel:')) {
       // Direct phone call
       bookingUrl = SALON_INFO.bookingUrl;
-    } else {
-      // Other booking platforms
-      const url = new URL(bookingUrl);
-      url.searchParams.set('service', serviceName);
-      url.searchParams.set('variation', variation.name);
-      url.searchParams.set('price', variation.price);
-      url.searchParams.set('duration', variation.duration);
-      bookingUrl = url.toString();
     }
     
     window.open(bookingUrl, '_blank');
@@ -466,8 +471,31 @@ const ServiceMenu = () => {
     // Create booking URL with service details
     let bookingUrl = SALON_INFO.bookingUrl;
     
+    // For email, create a detailed message
+    if (bookingUrl.includes('mailto:')) {
+      const subject = `Book ${serviceDetails.service} - ${serviceDetails.variation}`;
+      const body = `Hi! I'd like to book an appointment:
+
+Service: ${serviceDetails.service} - ${serviceDetails.variation}
+Price: $${serviceDetails.price}
+Duration: ${serviceDetails.duration}
+
+My Details:
+Name: ${serviceDetails.clientName}
+Phone: ${serviceDetails.clientPhone}
+Email: ${serviceDetails.clientEmail}
+Preferred Date: ${serviceDetails.preferredDate || 'Flexible'}
+Notes: ${serviceDetails.notes || 'None'}
+
+Please let me know your availability and confirm the appointment.
+
+Thank you!`;
+      const encodedSubject = encodeURIComponent(subject);
+      const encodedBody = encodeURIComponent(body);
+      bookingUrl = `${SALON_INFO.bookingUrl}?subject=${encodedSubject}&body=${encodedBody}`;
+    }
     // For WhatsApp, create a detailed message
-    if (bookingUrl.includes('wa.me')) {
+    else if (bookingUrl.includes('wa.me')) {
       const message = `Hi! I'd like to book an appointment:
 
 Service: ${serviceDetails.service} - ${serviceDetails.variation}
@@ -486,23 +514,6 @@ Please let me know your availability!`;
     // For phone calls
     else if (bookingUrl.includes('tel:')) {
       bookingUrl = SALON_INFO.bookingUrl;
-    }
-    // For Square Appointments
-    else if (bookingUrl.includes('square.site')) {
-      const url = new URL(bookingUrl);
-      url.searchParams.set('service', serviceDetails.service);
-      url.searchParams.set('variation', serviceDetails.variation);
-      url.searchParams.set('price', serviceDetails.price);
-      bookingUrl = url.toString();
-    }
-    // For other booking platforms
-    else {
-      const url = new URL(bookingUrl);
-      url.searchParams.set('service', serviceDetails.service);
-      url.searchParams.set('variation', serviceDetails.variation);
-      url.searchParams.set('price', serviceDetails.price);
-      url.searchParams.set('duration', serviceDetails.duration);
-      bookingUrl = url.toString();
     }
     
     window.open(bookingUrl, '_blank');
