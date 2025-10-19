@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronRight, Clock } from 'lucide-react';
+import { ChevronDown, ChevronRight, Clock, Calendar, Phone, Mail, MapPin } from 'lucide-react';
+
+// 🎯 CUSTOMIZE THIS DATA FOR EACH CLIENT
+const SALON_INFO = {
+  name: "Elite Braids & Beauty",
+  phone: "(555) 123-4567",
+  email: "booking@elitebraids.com",
+  address: "123 Beauty Lane, Style City, SC 12345",
+  hours: "Mon-Sat: 9AM-7PM, Sun: 10AM-5PM",
+  bookingUrl: "https://calendly.com/elitebraids", // ← Change this to your client's booking URL
+  website: "https://elitebraids.com",
+  instagram: "@elitebraids",
+  description: "Professional braiding services with premium products and expert stylists"
+};
 
 // DATA STRUCTURE - Easy to modify for different clients
 const SALON_DATA = {
@@ -372,6 +385,8 @@ const ServiceMenu = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [expandedVariations, setExpandedVariations] = useState({});
+  const [selectedService, setSelectedService] = useState(null);
+  const [showBookingModal, setShowBookingModal] = useState(false);
 
   const toggleCategory = (category) => {
     if (selectedCategory === category) {
@@ -398,13 +413,108 @@ const ServiceMenu = () => {
     }));
   };
 
+  const handleBookingClick = (serviceName, variation) => {
+    setSelectedService({ serviceName, variation });
+    setShowBookingModal(true);
+  };
+
+  const handleBookingSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const serviceDetails = {
+      service: selectedService.serviceName,
+      variation: selectedService.variation.name,
+      price: selectedService.variation.price,
+      duration: selectedService.variation.duration,
+      clientName: formData.get('clientName'),
+      clientPhone: formData.get('clientPhone'),
+      clientEmail: formData.get('clientEmail'),
+      preferredDate: formData.get('preferredDate'),
+      notes: formData.get('notes')
+    };
+
+    // Redirect to booking platform with service details
+    const bookingUrl = new URL(SALON_INFO.bookingUrl);
+    bookingUrl.searchParams.set('service', serviceDetails.service);
+    bookingUrl.searchParams.set('variation', serviceDetails.variation);
+    bookingUrl.searchParams.set('price', serviceDetails.price);
+    
+    window.open(bookingUrl.toString(), '_blank');
+    setShowBookingModal(false);
+    setSelectedService(null);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 p-4 md:p-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50">
+      {/* Header */}
+      <header className="bg-white shadow-lg">
+        <div className="max-w-6xl mx-auto px-4 py-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
+                <Calendar className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">{SALON_INFO.name}</h1>
+                <p className="text-gray-600">{SALON_INFO.description}</p>
+              </div>
+            </div>
+            <div className="hidden md:flex items-center space-x-6 text-sm text-gray-600">
+              <div className="flex items-center space-x-2">
+                <Phone className="w-4 h-4" />
+                <span>{SALON_INFO.phone}</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <MapPin className="w-4 h-4" />
+                <span>{SALON_INFO.address}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Contact Bar */}
+      <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex flex-wrap items-center justify-between text-sm">
+            <div className="flex items-center space-x-6 mb-2 md:mb-0">
+              <div className="flex items-center space-x-2">
+                <Phone className="w-4 h-4" />
+                <span>{SALON_INFO.phone}</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Mail className="w-4 h-4" />
+                <span>{SALON_INFO.email}</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Clock className="w-4 h-4" />
+                <span>{SALON_INFO.hours}</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              {SALON_INFO.instagram && (
+                <a href={`https://instagram.com/${SALON_INFO.instagram.replace('@', '')}`} 
+                   className="flex items-center space-x-1 hover:text-pink-200 transition-colors">
+                  <span>{SALON_INFO.instagram}</span>
+                </a>
+              )}
+              {SALON_INFO.website && (
+                <a href={SALON_INFO.website} 
+                   className="flex items-center space-x-1 hover:text-pink-200 transition-colors">
+                  <span>Website</span>
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-6xl mx-auto p-4 md:p-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-2">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-2">
             Service Menu
-          </h1>
+          </h2>
           <p className="text-gray-600 text-lg">Select a category to view our services</p>
         </div>
 
@@ -465,36 +575,32 @@ const ServiceMenu = () => {
 
                     {isExpanded && (
                       <div className="bg-white p-5">
-                        <button
-                          onClick={() => toggleVariations(variationKey)}
-                          className="w-full mb-4 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity"
-                        >
-                          {showVariations ? 'Hide' : 'Show'} All Variations ({data.variations.length})
-                        </button>
-
-                        {showVariations && (
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {data.variations.map((variation, idx) => (
-                              <div
-                                key={idx}
-                                className="border-2 border-purple-200 rounded-lg p-4 hover:bg-purple-50 transition-colors"
-                              >
-                                <div className="flex justify-between items-start mb-2">
-                                  <h4 className="font-semibold text-gray-800 flex-1">
-                                    {variation.name}
-                                  </h4>
-                                  <span className="text-purple-600 font-bold text-lg ml-2">
-                                    ${variation.price}
-                                  </span>
-                                </div>
-                                <div className="flex items-center text-sm text-gray-600">
-                                  <Clock size={14} className="mr-1" />
-                                  {variation.duration}
-                                </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          {data.variations.map((variation, idx) => (
+                            <div
+                              key={idx}
+                              onClick={() => handleBookingClick(subcategory, variation)}
+                              className="border-2 border-purple-200 rounded-lg p-4 hover:bg-purple-50 hover:border-purple-400 cursor-pointer transition-all duration-200 hover:shadow-md"
+                            >
+                              <div className="flex justify-between items-start mb-2">
+                                <h4 className="font-semibold text-gray-800 flex-1">
+                                  {variation.name}
+                                </h4>
+                                <span className="text-purple-600 font-bold text-lg ml-2">
+                                  ${variation.price}
+                                </span>
                               </div>
-                            ))}
-                          </div>
-                        )}
+                              <div className="flex items-center text-sm text-gray-600 mb-3">
+                                <Clock size={14} className="mr-1" />
+                                {variation.duration}
+                              </div>
+                              <div className="flex items-center justify-center space-x-2 text-purple-600 font-semibold">
+                                <Calendar size={16} />
+                                <span>Click to Book</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
@@ -504,22 +610,144 @@ const ServiceMenu = () => {
           </div>
         )}
 
+        {/* Call to Action */}
+        <div className="mt-12 text-center">
+          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
+            <h3 className="text-2xl font-bold mb-4">Ready to Transform Your Look?</h3>
+            <p className="text-lg mb-6">
+              Book your appointment today and experience professional hair care at its finest
+            </p>
+            <a
+              href={SALON_INFO.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+            >
+              <Calendar className="w-5 h-5" />
+              <span>Book Appointment</span>
+            </a>
+          </div>
+        </div>
+
         {!selectedCategory && (
           <div className="bg-white rounded-2xl shadow-xl p-8 mt-8">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">💡 For Web Developers</h3>
             <div className="space-y-2 text-gray-600">
-              <p className="font-semibold">To customize prices for different clients:</p>
+              <p className="font-semibold">To customize for different clients:</p>
               <ol className="list-decimal list-inside space-y-1 ml-4">
-                <li>Find the SALON_DATA object at the top of the code</li>
-                <li>Modify prices in the variations array for each style</li>
-                <li>Update the starting price for each subcategory</li>
-                <li>Add or remove variations as needed</li>
-                <li>Copy the entire code and integrate into your client websites</li>
+                <li>Update SALON_INFO with client's contact details</li>
+                <li>Modify SALON_DATA pricing for their market</li>
+                <li>Change bookingUrl to their booking platform</li>
+                <li>Customize colors and branding as needed</li>
+                <li>Deploy and you're done!</li>
               </ol>
             </div>
           </div>
         )}
       </div>
+
+      {/* Booking Modal */}
+      {showBookingModal && selectedService && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-gray-900">Book Your Service</h3>
+                <button
+                  onClick={() => setShowBookingModal(false)}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+                <h4 className="font-semibold text-gray-900">{selectedService.serviceName}</h4>
+                <p className="text-gray-600">{selectedService.variation.name}</p>
+                <p className="text-purple-600 font-semibold">
+                  ${selectedService.variation.price} • {selectedService.variation.duration}
+                </p>
+              </div>
+
+              <form onSubmit={handleBookingSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="clientName"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    name="clientPhone"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    name="clientEmail"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Preferred Date
+                  </label>
+                  <input
+                    type="date"
+                    name="preferredDate"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Special Requests or Notes
+                  </label>
+                  <textarea
+                    name="notes"
+                    rows="3"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder="Any specific requests or allergies we should know about?"
+                  />
+                </div>
+
+                <div className="flex space-x-3 pt-4">
+                  <button
+                    type="button"
+                    onClick={() => setShowBookingModal(false)}
+                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200"
+                  >
+                    Continue to Booking
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
