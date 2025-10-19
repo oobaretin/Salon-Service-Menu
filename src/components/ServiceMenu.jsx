@@ -1,433 +1,525 @@
 import React, { useState } from 'react';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Calendar, 
-  ChevronDown, 
-  ChevronUp,
-  Star,
-  Instagram,
-  Globe,
-  Heart,
-  Scissors,
-  Sparkles
-} from 'lucide-react';
-import { SALON_INFO, SALON_DATA, SERVICE_CATEGORIES, POPULAR_SERVICES } from '../data/salonData';
+import { ChevronDown, ChevronRight, Clock } from 'lucide-react';
+
+// DATA STRUCTURE - Easy to modify for different clients
+const SALON_DATA = {
+  "Braids": {
+    "Box Braids": {
+      starting: 180,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 180 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 200 },
+        { name: "Waist Length Large", duration: "45 min", price: 200 },
+        { name: "Thigh Length Large", duration: "45 min", price: 200 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 220 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 230 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 240 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 260 },
+        { name: "Waist Length Medium", duration: "45 min", price: 280 },
+        { name: "Waist Length Small", duration: "45 min", price: 300 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 320 },
+        { name: "Thigh Length Small", duration: "45 min", price: 340 }
+      ]
+    },
+    "Bohemian Box Braids": {
+      starting: 200,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 230 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 250 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 250 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 260 },
+        { name: "Waist Length Large", duration: "45 min", price: 270 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 290 },
+        { name: "Waist Length Medium", duration: "45 min", price: 300 },
+        { name: "Thigh Length Large", duration: "45 min", price: 300 },
+        { name: "Waist Length Small", duration: "45 min", price: 320 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 340 },
+        { name: "Thigh Length Small", duration: "45 min", price: 360 }
+      ]
+    },
+    "Micro Braids": {
+      starting: 300,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 300 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 320 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 340 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 360 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 360 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 380 },
+        { name: "Waist Length Large", duration: "45 min", price: 420 },
+        { name: "Waist Length Medium", duration: "45 min", price: 460 },
+        { name: "Waist Length Small", duration: "45 min", price: 470 },
+        { name: "Thigh Length Large", duration: "45 min", price: 600 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 650 },
+        { name: "Thigh Length Small", duration: "45 min", price: 680 }
+      ]
+    },
+    "Bob Box Braids": {
+      starting: 200,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 230 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 250 }
+      ]
+    },
+    "Jumbo Box Braids": {
+      starting: 180,
+      variations: [
+        { name: "Shoulder Length Jumbo", duration: "45 min", price: 180 },
+        { name: "Mid Back Length Jumbo", duration: "45 min", price: 200 },
+        { name: "Thigh Length Jumbo", duration: "45 min", price: 220 }
+      ]
+    },
+    "Feed In Braids": {
+      starting: 50,
+      variations: [
+        { name: "2 Braids", duration: "45 min", price: 50 },
+        { name: "3 Braids", duration: "45 min", price: 60 },
+        { name: "4 Braids", duration: "45 min", price: 70 },
+        { name: "6 Braids", duration: "45 min", price: 85 },
+        { name: "8 Braids", duration: "45 min", price: 100 },
+        { name: "10 Braids", duration: "45 min", price: 150 }
+      ]
+    },
+    "Fulani Braids": {
+      starting: 125,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 125 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 135 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 145 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 150 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 165 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 175 },
+        { name: "Waist Length Large", duration: "45 min", price: 225 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 245 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 275 },
+        { name: "Thigh Length Large", duration: "45 min", price: 285 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 300 },
+        { name: "Thigh Length Large", duration: "45 min", price: 400 }
+      ]
+    },
+    "Lemonade Braids": {
+      starting: 100,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 100 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 120 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 150 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 150 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 180 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 200 },
+        { name: "Waist Length Large", duration: "45 min", price: 200 },
+        { name: "Waist Length Medium", duration: "45 min", price: 240 },
+        { name: "Thigh Length Large", duration: "45 min", price: 250 },
+        { name: "Waist Length Small", duration: "45 min", price: 260 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 280 },
+        { name: "Thigh Length Small", duration: "45 min", price: 300 }
+      ]
+    },
+    "Bora Bora Braids": {
+      starting: 200,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 230 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 240 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 260 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 270 },
+        { name: "Waist Length Large", duration: "45 min", price: 270 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 290 },
+        { name: "Thigh Length Large", duration: "45 min", price: 290 },
+        { name: "Waist Length Medium", duration: "45 min", price: 300 },
+        { name: "Waist Length Small", duration: "45 min", price: 320 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 320 },
+        { name: "Thigh Length Small", duration: "45 min", price: 350 }
+      ]
+    }
+  },
+  "Twists": {
+    "Havana Twist": {
+      starting: 200,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 220 },
+        { name: "Waist Length Medium", duration: "45 min", price: 225 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 230 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 250 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 260 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 275 },
+        { name: "Waist Length Small", duration: "45 min", price: 350 },
+        { name: "Thigh Length Large", duration: "45 min", price: 380 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 400 },
+        { name: "Thigh Length Small", duration: "45 min", price: 450 },
+        { name: "Waist Length Large", duration: "45 min", price: 500 }
+      ]
+    },
+    "Senegalese Twists": {
+      starting: 300,
+      variations: [
+        { name: "Shoulder Length Medium", duration: "45 min", price: 300 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 350 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 350 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 380 },
+        { name: "Waist Length Medium", duration: "45 min", price: 400 },
+        { name: "Waist Length Small", duration: "45 min", price: 450 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 475 },
+        { name: "Thigh Length Small", duration: "45 min", price: 500 }
+      ]
+    },
+    "Passion Twist": {
+      starting: 175,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 175 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 200 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 245 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 250 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 260 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 275 },
+        { name: "Waist Length Large", duration: "45 min", price: 325 },
+        { name: "Waist Length Medium", duration: "45 min", price: 350 },
+        { name: "Waist Length Small", duration: "45 min", price: 375 },
+        { name: "Thigh Length Large", duration: "45 min", price: 400 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 445 },
+        { name: "Thigh Length Small", duration: "45 min", price: 475 }
+      ]
+    },
+    "Kinky Twists": {
+      starting: 200,
+      variations: [
+        { name: "Shoulder Length Medium", duration: "45 min", price: 200 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 260 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 275 },
+        { name: "Waist Length Medium", duration: "45 min", price: 350 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 375 },
+        { name: "Waist Length Small", duration: "45 min", price: 375 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 400 },
+        { name: "Thigh Length Small", duration: "45 min", price: 450 }
+      ]
+    },
+    "Marley Twists": {
+      starting: 200,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 220 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 230 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 250 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 260 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 275 },
+        { name: "Waist Length Large", duration: "45 min", price: 300 },
+        { name: "Waist Length Medium", duration: "45 min", price: 325 },
+        { name: "Waist Length Small", duration: "45 min", price: 350 },
+        { name: "Thigh Length Large", duration: "45 min", price: 380 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 425 },
+        { name: "Thigh Length Small", duration: "45 min", price: 450 }
+      ]
+    },
+    "Nubian Twist": {
+      starting: 225,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 225 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 225 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 245 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 250 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 285 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 300 },
+        { name: "Waist Length Large", duration: "45 min", price: 345 },
+        { name: "Waist Length Medium", duration: "45 min", price: 360 },
+        { name: "Waist Length Small", duration: "45 min", price: 380 },
+        { name: "Thigh Length Large", duration: "45 min", price: 400 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 425 },
+        { name: "Thigh Length Small", duration: "45 min", price: 450 }
+      ]
+    },
+    "Comb Twist": {
+      starting: 75,
+      variations: [
+        { name: "Standard", duration: "45 min", price: 75 }
+      ]
+    },
+    "Two Strand Twist": {
+      starting: 100,
+      variations: [
+        { name: "Standard", duration: "45 min", price: 100 }
+      ]
+    }
+  },
+  "Faux Locs": {
+    "Goddess Locs": {
+      starting: 200,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 230 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 245 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 250 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 260 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 275 },
+        { name: "Waist Length Small", duration: "45 min", price: 275 },
+        { name: "Waist Length Large", duration: "45 min", price: 325 },
+        { name: "Waist Length Medium", duration: "45 min", price: 350 },
+        { name: "Thigh Length Large", duration: "45 min", price: 400 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 430 },
+        { name: "Thigh Length Small", duration: "45 min", price: 475 }
+      ]
+    },
+    "Butterfly/Distressed Locs": {
+      starting: 200,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 230 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 250 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 250 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 285 },
+        { name: "Waist Length Small", duration: "45 min", price: 300 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 330 },
+        { name: "Waist Length Large", duration: "45 min", price: 345 },
+        { name: "Waist Length Medium", duration: "45 min", price: 360 },
+        { name: "Thigh Length Large", duration: "45 min", price: 440 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 460 },
+        { name: "Thigh Length Small", duration: "45 min", price: 475 }
+      ]
+    },
+    "Bohemian Locs": {
+      starting: 225,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 225 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 250 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 265 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 275 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 285 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 300 },
+        { name: "Waist Length Large", duration: "45 min", price: 300 },
+        { name: "Waist Length Medium", duration: "45 min", price: 325 },
+        { name: "Waist Length Small", duration: "45 min", price: 350 },
+        { name: "Thigh Length Small", duration: "45 min", price: 350 },
+        { name: "Thigh Length Large", duration: "45 min", price: 400 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 425 }
+      ]
+    }
+  },
+  "Crotchets": {
+    "Crotchet with Pre Looped Hair": {
+      starting: 160,
+      variations: [
+        { name: "Any Length Large", duration: "45 min", price: 160 },
+        { name: "Any Length Medium/Small", duration: "45 min", price: 185 }
+      ]
+    }
+  },
+  "Dreads": {
+    "Starter Locs": {
+      starting: 90,
+      variations: [
+        { name: "Standard", duration: "45 min", price: 90 }
+      ]
+    },
+    "Loc Takedown": {
+      starting: 65,
+      variations: [
+        { name: "Standard", duration: "45 min", price: 65 }
+      ]
+    }
+  },
+  "Kid Styles": {
+    "Kid's Box Braids": {
+      starting: 80,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 80 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 100 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 125 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 125 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 140 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 150 }
+      ]
+    },
+    "Kid's Ponytail Buns": {
+      starting: 75,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 75 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 140 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 150 }
+      ]
+    }
+  },
+  "Cornrows": {
+    "Cornrow Updo": {
+      starting: 80,
+      variations: [
+        { name: "Shoulder Length Large", duration: "45 min", price: 80 },
+        { name: "Shoulder Length Medium", duration: "45 min", price: 95 },
+        { name: "Shoulder Length Small", duration: "45 min", price: 100 },
+        { name: "Mid Back Length Large", duration: "45 min", price: 100 },
+        { name: "Mid Back Length Medium", duration: "45 min", price: 110 },
+        { name: "Mid Back Length Small", duration: "45 min", price: 125 },
+        { name: "Waist Length Large", duration: "45 min", price: 130 },
+        { name: "Waist Length Medium", duration: "45 min", price: 140 },
+        { name: "Waist Length Small", duration: "45 min", price: 150 },
+        { name: "Thigh Length Large", duration: "45 min", price: 165 },
+        { name: "Thigh Length Medium", duration: "45 min", price: 170 },
+        { name: "Thigh Length Small", duration: "45 min", price: 185 }
+      ]
+    }
+  },
+  "Bantu Knots": {
+    "Bantu Knots": {
+      starting: 65,
+      variations: [
+        { name: "Standard", duration: "45 min", price: 65 }
+      ]
+    }
+  }
+};
 
 const ServiceMenu = () => {
-  const [expandedCategories, setExpandedCategories] = useState({});
-  const [expandedServices, setExpandedServices] = useState({});
-  const [selectedService, setSelectedService] = useState(null);
-  const [showBookingModal, setShowBookingModal] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedSubcategory, setSelectedSubcategory] = useState(null);
+  const [expandedVariations, setExpandedVariations] = useState({});
 
-  // Toggle category expansion
   const toggleCategory = (category) => {
-    setExpandedCategories(prev => ({
+    if (selectedCategory === category) {
+      setSelectedCategory(null);
+      setSelectedSubcategory(null);
+    } else {
+      setSelectedCategory(category);
+      setSelectedSubcategory(null);
+    }
+  };
+
+  const toggleSubcategory = (subcategory) => {
+    if (selectedSubcategory === subcategory) {
+      setSelectedSubcategory(null);
+    } else {
+      setSelectedSubcategory(subcategory);
+    }
+  };
+
+  const toggleVariations = (key) => {
+    setExpandedVariations(prev => ({
       ...prev,
-      [category]: !prev[category]
+      [key]: !prev[key]
     }));
-  };
-
-  // Toggle service expansion
-  const toggleService = (serviceKey) => {
-    setExpandedServices(prev => ({
-      ...prev,
-      [serviceKey]: !prev[serviceKey]
-    }));
-  };
-
-  // Handle booking button click
-  const handleBookingClick = (serviceName, variation) => {
-    setSelectedService({ serviceName, variation });
-    setShowBookingModal(true);
-  };
-
-  // Handle booking form submission
-  const handleBookingSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const serviceDetails = {
-      service: selectedService.serviceName,
-      variation: selectedService.variation.name,
-      price: selectedService.variation.price,
-      duration: selectedService.variation.duration,
-      clientName: formData.get('clientName'),
-      clientPhone: formData.get('clientPhone'),
-      clientEmail: formData.get('clientEmail'),
-      preferredDate: formData.get('preferredDate'),
-      notes: formData.get('notes')
-    };
-
-    // Redirect to booking platform with service details
-    const bookingUrl = new URL(SALON_INFO.bookingUrl);
-    bookingUrl.searchParams.set('service', serviceDetails.service);
-    bookingUrl.searchParams.set('variation', serviceDetails.variation);
-    bookingUrl.searchParams.set('price', serviceDetails.price);
-    
-    window.open(bookingUrl.toString(), '_blank');
-    setShowBookingModal(false);
-    setSelectedService(null);
-  };
-
-  // Format price for display
-  const formatPrice = (price) => {
-    return `$${price}`;
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
-      {/* Header */}
-      <header className="bg-white shadow-lg">
-        <div className="max-w-6xl mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
-                <Scissors className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">{SALON_INFO.name}</h1>
-                <p className="text-gray-600">{SALON_INFO.description}</p>
-              </div>
-            </div>
-            <div className="hidden md:flex items-center space-x-6 text-sm text-gray-600">
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4" />
-                <span>{SALON_INFO.phone}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4" />
-                <span>{SALON_INFO.address}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Contact Bar */}
-      <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-between text-sm">
-            <div className="flex items-center space-x-6 mb-2 md:mb-0">
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4" />
-                <span>{SALON_INFO.phone}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4" />
-                <span>{SALON_INFO.email}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Clock className="w-4 h-4" />
-                <span>{SALON_INFO.hours}</span>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              {SALON_INFO.instagram && (
-                <a href={`https://instagram.com/${SALON_INFO.instagram.replace('@', '')}`} 
-                   className="flex items-center space-x-1 hover:text-pink-200 transition-colors">
-                  <Instagram className="w-4 h-4" />
-                  <span>{SALON_INFO.instagram}</span>
-                </a>
-              )}
-              {SALON_INFO.website && (
-                <a href={SALON_INFO.website} 
-                   className="flex items-center space-x-1 hover:text-pink-200 transition-colors">
-                  <Globe className="w-4 h-4" />
-                  <span>Website</span>
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-4 py-8">
-        {/* Welcome Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Professional Hair Services
-          </h2>
-          <p className="text-xl text-gray-600 mb-6">
-            Expert styling with premium products and personalized care
-          </p>
-          <div className="flex justify-center space-x-4">
-            <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-md">
-              <Star className="w-5 h-5 text-yellow-500" />
-              <span className="font-semibold">5.0 Rating</span>
-            </div>
-            <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-md">
-              <Heart className="w-5 h-5 text-red-500" />
-              <span className="font-semibold">1000+ Happy Clients</span>
-            </div>
-          </div>
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-2">
+            Service Menu
+          </h1>
+          <p className="text-gray-600 text-lg">Select a category to view our services</p>
         </div>
 
-        {/* Service Categories */}
-        <div className="space-y-6">
-          {SERVICE_CATEGORIES.map((category) => (
-            <div key={category} className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <button
-                onClick={() => toggleCategory(category)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
-              >
-                <h3 className="text-xl font-semibold text-gray-900">{category}</h3>
-                {expandedCategories[category] ? (
-                  <ChevronUp className="w-5 h-5 text-gray-500" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
-                )}
-              </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          {Object.keys(SALON_DATA).map((category) => (
+            <button
+              key={category}
+              onClick={() => toggleCategory(category)}
+              className={`p-6 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 ${
+                selectedCategory === category
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                  : 'bg-white text-gray-800 hover:shadow-xl'
+              }`}
+            >
+              <h3 className="text-xl font-bold">{category}</h3>
+              <p className="text-sm mt-1 opacity-80">
+                {Object.keys(SALON_DATA[category]).length} styles
+              </p>
+            </button>
+          ))}
+        </div>
 
-              {expandedCategories[category] && (
-                <div className="border-t border-gray-200">
-                  {Object.entries(SALON_DATA[category]).map(([serviceName, serviceData]) => (
-                    <div key={serviceName} className="border-b border-gray-100 last:border-b-0">
-                      <button
-                        onClick={() => toggleService(`${category}-${serviceName}`)}
-                        className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
-                      >
-                        <div>
-                          <h4 className="text-lg font-medium text-gray-900">{serviceName}</h4>
-                          <p className="text-sm text-gray-600">{serviceData.description}</p>
-                          <p className="text-sm text-purple-600 font-semibold">
-                            Starting at {formatPrice(serviceData.starting)}
+        {selectedCategory && (
+          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+              <span className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg mr-3">
+                {selectedCategory}
+              </span>
+            </h2>
+
+            <div className="space-y-4">
+              {Object.entries(SALON_DATA[selectedCategory]).map(([subcategory, data]) => {
+                const isExpanded = selectedSubcategory === subcategory;
+                const variationKey = `${selectedCategory}-${subcategory}`;
+                const showVariations = expandedVariations[variationKey];
+
+                return (
+                  <div key={subcategory} className="border-2 border-gray-200 rounded-xl overflow-hidden">
+                    <button
+                      onClick={() => toggleSubcategory(subcategory)}
+                      className={`w-full p-5 flex items-center justify-between transition-colors ${
+                        isExpanded ? 'bg-purple-100' : 'bg-gray-50 hover:bg-gray-100'
+                      }`}
+                    >
+                      <div className="flex items-center space-x-3">
+                        {isExpanded ? <ChevronDown size={24} /> : <ChevronRight size={24} />}
+                        <div className="text-left">
+                          <h3 className="text-xl font-bold text-gray-800">{subcategory}</h3>
+                          <p className="text-sm text-gray-600">
+                            {data.variations.length} option{data.variations.length > 1 ? 's' : ''} • Starting at ${data.starting}
                           </p>
                         </div>
-                        {expandedServices[`${category}-${serviceName}`] ? (
-                          <ChevronUp className="w-5 h-5 text-gray-500" />
-                        ) : (
-                          <ChevronDown className="w-5 h-5 text-gray-500" />
-                        )}
-                      </button>
+                      </div>
+                      <div className="bg-purple-600 text-white px-4 py-2 rounded-lg font-bold">
+                        From ${data.starting}
+                      </div>
+                    </button>
 
-                      {expandedServices[`${category}-${serviceName}`] && (
-                        <div className="px-6 pb-4 bg-gray-50">
-                          <div className="grid gap-3">
-                            {serviceData.variations.map((variation, index) => (
-                              <div key={index} className="bg-white rounded-lg p-4 shadow-sm">
-                                <div className="flex items-center justify-between">
-                                  <div className="flex-1">
-                                    <h5 className="font-medium text-gray-900">{variation.name}</h5>
-                                    <p className="text-sm text-gray-600">{variation.duration}</p>
-                                  </div>
-                                  <div className="flex items-center space-x-3">
-                                    <span className="text-lg font-bold text-purple-600">
-                                      {formatPrice(variation.price)}
-                                    </span>
-                                    <button
-                                      onClick={() => handleBookingClick(serviceName, variation)}
-                                      className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex items-center space-x-2"
-                                    >
-                                      <Calendar className="w-4 h-4" />
-                                      <span>Book Now</span>
-                                    </button>
-                                  </div>
+                    {isExpanded && (
+                      <div className="bg-white p-5">
+                        <button
+                          onClick={() => toggleVariations(variationKey)}
+                          className="w-full mb-4 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                          {showVariations ? 'Hide' : 'Show'} All Variations ({data.variations.length})
+                        </button>
+
+                        {showVariations && (
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {data.variations.map((variation, idx) => (
+                              <div
+                                key={idx}
+                                className="border-2 border-purple-200 rounded-lg p-4 hover:bg-purple-50 transition-colors"
+                              >
+                                <div className="flex justify-between items-start mb-2">
+                                  <h4 className="font-semibold text-gray-800 flex-1">
+                                    {variation.name}
+                                  </h4>
+                                  <span className="text-purple-600 font-bold text-lg ml-2">
+                                    ${variation.price}
+                                  </span>
+                                </div>
+                                <div className="flex items-center text-sm text-gray-600">
+                                  <Clock size={14} className="mr-1" />
+                                  {variation.duration}
                                 </div>
                               </div>
                             ))}
                           </div>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="mt-12 text-center">
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">Ready to Transform Your Look?</h3>
-            <p className="text-lg mb-6">
-              Book your appointment today and experience professional hair care at its finest
-            </p>
-            <a
-              href={SALON_INFO.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-            >
-              <Calendar className="w-5 h-5" />
-              <span>Book Appointment</span>
-            </a>
-          </div>
-        </div>
-      </main>
-
-      {/* Booking Modal */}
-      {showBookingModal && selectedService && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-bold text-gray-900">Book Your Service</h3>
-                <button
-                  onClick={() => setShowBookingModal(false)}
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  ✕
-                </button>
-              </div>
-
-              <div className="mb-6 p-4 bg-gray-50 rounded-lg">
-                <h4 className="font-semibold text-gray-900">{selectedService.serviceName}</h4>
-                <p className="text-gray-600">{selectedService.variation.name}</p>
-                <p className="text-purple-600 font-semibold">
-                  {formatPrice(selectedService.variation.price)} • {selectedService.variation.duration}
-                </p>
-              </div>
-
-              <form onSubmit={handleBookingSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="clientName"
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    name="clientPhone"
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    name="clientEmail"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Preferred Date
-                  </label>
-                  <input
-                    type="date"
-                    name="preferredDate"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Special Requests or Notes
-                  </label>
-                  <textarea
-                    name="notes"
-                    rows="3"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    placeholder="Any specific requests or allergies we should know about?"
-                  />
-                </div>
-
-                <div className="flex space-x-3 pt-4">
-                  <button
-                    type="button"
-                    onClick={() => setShowBookingModal(false)}
-                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200"
-                  >
-                    Continue to Booking
-                  </button>
-                </div>
-              </form>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 mt-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h4 className="text-lg font-semibold mb-4">{SALON_INFO.name}</h4>
-              <p className="text-gray-300 mb-4">{SALON_INFO.description}</p>
-              <div className="flex space-x-4">
-                {SALON_INFO.instagram && (
-                  <a href={`https://instagram.com/${SALON_INFO.instagram.replace('@', '')}`} 
-                     className="text-gray-400 hover:text-white transition-colors">
-                    <Instagram className="w-5 h-5" />
-                  </a>
-                )}
-                {SALON_INFO.website && (
-                  <a href={SALON_INFO.website} 
-                     className="text-gray-400 hover:text-white transition-colors">
-                    <Globe className="w-5 h-5" />
-                  </a>
-                )}
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-              <div className="space-y-2 text-gray-300">
-                <div className="flex items-center space-x-2">
-                  <Phone className="w-4 h-4" />
-                  <span>{SALON_INFO.phone}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Mail className="w-4 h-4" />
-                  <span>{SALON_INFO.email}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <MapPin className="w-4 h-4" />
-                  <span>{SALON_INFO.address}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Clock className="w-4 h-4" />
-                  <span>{SALON_INFO.hours}</span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <div className="space-y-2">
-                <a href={SALON_INFO.bookingUrl} className="block text-gray-300 hover:text-white transition-colors">
-                  Book Appointment
-                </a>
-                <a href={`tel:${SALON_INFO.phone}`} className="block text-gray-300 hover:text-white transition-colors">
-                  Call Now
-                </a>
-                <a href={`mailto:${SALON_INFO.email}`} className="block text-gray-300 hover:text-white transition-colors">
-                  Email Us
-                </a>
-              </div>
+        {!selectedCategory && (
+          <div className="bg-white rounded-2xl shadow-xl p-8 mt-8">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">💡 For Web Developers</h3>
+            <div className="space-y-2 text-gray-600">
+              <p className="font-semibold">To customize prices for different clients:</p>
+              <ol className="list-decimal list-inside space-y-1 ml-4">
+                <li>Find the SALON_DATA object at the top of the code</li>
+                <li>Modify prices in the variations array for each style</li>
+                <li>Update the starting price for each subcategory</li>
+                <li>Add or remove variations as needed</li>
+                <li>Copy the entire code and integrate into your client websites</li>
+              </ol>
             </div>
           </div>
-
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 {SALON_INFO.name}. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+        )}
+      </div>
     </div>
   );
 };
