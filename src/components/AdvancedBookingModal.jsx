@@ -34,26 +34,10 @@ const AdvancedBookingModal = ({
     };
 
     try {
-      // Simulate API call - replace with your actual backend endpoint
-      const response = await fetch('/api/book-appointment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...bookingDetails,
-          salonEmail: salonInfo.email,
-          salonName: salonInfo.name,
-          salonPhone: salonInfo.phone
-        })
-      });
-
-      if (response.ok) {
-        setBookingData(bookingDetails);
-        setStep(2); // Show confirmation
-      } else {
-        throw new Error('Failed to book appointment');
-      }
+      // For standalone version - just proceed to confirmation
+      // In production, this would call your backend API
+      setBookingData(bookingDetails);
+      setStep(2); // Show confirmation
     } catch (err) {
       setError('Failed to book appointment. Please try again or contact us directly.');
     } finally {
@@ -64,18 +48,8 @@ const AdvancedBookingModal = ({
   const confirmBooking = async () => {
     setIsLoading(true);
     try {
-      // Send confirmation emails
-      await fetch('/api/send-confirmation', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          bookingData,
-          salonInfo
-        })
-      });
-      
+      // For standalone version - just show success
+      // In production, this would send confirmation emails via your backend
       setStep(3); // Show success
       onBookingSuccess(bookingData);
     } catch (err) {
@@ -324,7 +298,9 @@ const AdvancedBookingModal = ({
               
               <div className="bg-green-50 p-4 rounded-lg">
                 <p className="text-green-800 text-sm">
-                  Your appointment has been booked successfully. You'll receive confirmation emails shortly.
+                  Your appointment has been booked successfully. 
+                  <br />
+                  <strong>Note:</strong> In production, you'll receive confirmation emails automatically.
                 </p>
               </div>
 
