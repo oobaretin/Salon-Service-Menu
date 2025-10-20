@@ -357,6 +357,78 @@ const SALON_DATA = {
     }
   },
   "Cornrows": {
+    "Straight Back Cornrows": {
+      starting: 50,
+      variations: [
+        { name: "Basic (6-8 braids)", duration: "1-2 hrs", price: 50 },
+        { name: "Medium (10-12 braids)", duration: "2-3 hrs", price: 75 },
+        { name: "Detailed (14-16 braids)", duration: "3-4 hrs", price: 100 },
+        { name: "Intricate (18+ braids)", duration: "4-5 hrs", price: 125 }
+      ]
+    },
+    "Ghana Braids": {
+      starting: 80,
+      variations: [
+        { name: "Short Length (8-10 inches)", duration: "2-3 hrs", price: 80 },
+        { name: "Medium Length (12-14 inches)", duration: "3-4 hrs", price: 100 },
+        { name: "Long Length (16-18 inches)", duration: "4-5 hrs", price: 120 },
+        { name: "Extra Long (20+ inches)", duration: "5-6 hrs", price: 150 }
+      ]
+    },
+    "Stitch Braids": {
+      starting: 90,
+      variations: [
+        { name: "Basic Stitch (6-8 braids)", duration: "2-3 hrs", price: 90 },
+        { name: "Medium Stitch (10-12 braids)", duration: "3-4 hrs", price: 110 },
+        { name: "Detailed Stitch (14-16 braids)", duration: "4-5 hrs", price: 130 },
+        { name: "Precision Stitch (18+ braids)", duration: "5-6 hrs", price: 150 }
+      ]
+    },
+    "Tribal Cornrows": {
+      starting: 120,
+      variations: [
+        { name: "Simple Tribal Pattern", duration: "3-4 hrs", price: 120 },
+        { name: "Medium Tribal Design", duration: "4-5 hrs", price: 150 },
+        { name: "Complex Tribal Pattern", duration: "5-6 hrs", price: 180 },
+        { name: "Intricate Tribal Art", duration: "6-8 hrs", price: 220 }
+      ]
+    },
+    "Freestyle Cornrows": {
+      starting: 100,
+      variations: [
+        { name: "Basic Freestyle", duration: "2-3 hrs", price: 100 },
+        { name: "Creative Zigzag", duration: "3-4 hrs", price: 125 },
+        { name: "Complex Freestyle", duration: "4-5 hrs", price: 150 },
+        { name: "Artistic Freestyle", duration: "5-6 hrs", price: 180 }
+      ]
+    },
+    "Curved/Circular Cornrows": {
+      starting: 110,
+      variations: [
+        { name: "Simple Curved", duration: "3-4 hrs", price: 110 },
+        { name: "Circular Swirl", duration: "4-5 hrs", price: 140 },
+        { name: "Complex Curved Pattern", duration: "5-6 hrs", price: 170 },
+        { name: "Intricate Swirl Design", duration: "6-7 hrs", price: 200 }
+      ]
+    },
+    "Side-Swept Cornrows": {
+      starting: 85,
+      variations: [
+        { name: "Basic Side-Swept", duration: "2-3 hrs", price: 85 },
+        { name: "Medium Side-Swept", duration: "3-4 hrs", price: 110 },
+        { name: "Detailed Side-Swept", duration: "4-5 hrs", price: 135 },
+        { name: "Lemonade Style", duration: "5-6 hrs", price: 160 }
+      ]
+    },
+    "Criss-Cross Cornrows": {
+      starting: 95,
+      variations: [
+        { name: "Simple Criss-Cross", duration: "3-4 hrs", price: 95 },
+        { name: "Medium Criss-Cross", duration: "4-5 hrs", price: 120 },
+        { name: "Complex Criss-Cross", duration: "5-6 hrs", price: 145 },
+        { name: "Intricate Criss-Cross", duration: "6-7 hrs", price: 170 }
+      ]
+    },
     "Cornrow Updo": {
       starting: 80,
       variations: [
