@@ -651,6 +651,24 @@ const SALON_DATA = {
         { name: "Knot Bun (High or Low)", duration: "1-2.5 hrs", price: 85 }
       ]
     }
+  },
+  "Hair Maintenance & Consultation": {
+    "Hair Maintenance": {
+      starting: 25,
+      variations: [
+        { name: "Edge Touch-ups", duration: "30 min", price: 25 },
+        { name: "Scalp Treatment", duration: "45 min", price: 40 },
+        { name: "Style Refresh", duration: "1 hr", price: 60 },
+        { name: "Full Maintenance", duration: "1.5-2 hrs", price: 80 }
+      ]
+    },
+    "Hair Consultation": {
+      starting: 15,
+      variations: [
+        { name: "Basic Consultation", duration: "15 min", price: 15 },
+        { name: "Detailed Consultation", duration: "30 min", price: 25 }
+      ]
+    }
   }
 };
 
