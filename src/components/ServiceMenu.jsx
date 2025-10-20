@@ -476,10 +476,67 @@ const SALON_DATA = {
     }
   },
   "Bantu Knots": {
-    "Bantu Knots": {
-      starting: 65,
+    "Classic Bantu Knots": {
+      starting: 60,
       variations: [
-        { name: "Standard", duration: "3-4 hours", price: 65 }
+        { name: "Small Knots (8-10)", duration: "2-3 hrs", price: 60 },
+        { name: "Medium Knots (12-15)", duration: "3-4 hrs", price: 80 },
+        { name: "Large Knots (6-8)", duration: "2.5-3.5 hrs", price: 70 },
+        { name: "Jumbo Knots (4-6)", duration: "2-3 hrs", price: 65 }
+      ]
+    },
+    "Bantu Knots with Extensions": {
+      starting: 90,
+      variations: [
+        { name: "Small Knots with Weave", duration: "3-4 hrs", price: 90 },
+        { name: "Medium Knots with Weave", duration: "4-5 hrs", price: 110 },
+        { name: "Large Knots with Weave", duration: "3.5-4.5 hrs", price: 100 },
+        { name: "Braided Knots with Extensions", duration: "4-6 hrs", price: 130 }
+      ]
+    },
+    "Creative Bantu Knots": {
+      starting: 85,
+      variations: [
+        { name: "Irregular Parting Design", duration: "3-4 hrs", price: 85 },
+        { name: "Heart-Shaped Parting", duration: "3.5-4.5 hrs", price: 95 },
+        { name: "Zig-Zag Parting Pattern", duration: "4-5 hrs", price: 105 },
+        { name: "Geometric Parting", duration: "4-5 hrs", price: 110 }
+      ]
+    },
+    "Bantu Knots with Braids": {
+      starting: 100,
+      variations: [
+        { name: "Knots with Side Braids", duration: "3-4 hrs", price: 100 },
+        { name: "Knots with Cornrows", duration: "4-5 hrs", price: 120 },
+        { name: "Knots with Flat Twists", duration: "3.5-4.5 hrs", price: 110 },
+        { name: "Half-Up Half-Down Style", duration: "4-5 hrs", price: 125 }
+      ]
+    },
+    "Bantu Knots with Beads/Decorations": {
+      starting: 95,
+      variations: [
+        { name: "Knots with Beads", duration: "3-4 hrs", price: 95 },
+        { name: "Knots with Golden Details", duration: "3.5-4.5 hrs", price: 110 },
+        { name: "Knots with Neon Accents", duration: "4-5 hrs", price: 120 },
+        { name: "Knots with Decorative Accessories", duration: "4-5 hrs", price: 125 }
+      ]
+    },
+    "Specialty Bantu Knots": {
+      starting: 80,
+      variations: [
+        { name: "Twist Out Knots", duration: "3-4 hrs", price: 80 },
+        { name: "Dreadlock Knots", duration: "4-5 hrs", price: 100 },
+        { name: "Chunky Knot Locs", duration: "3.5-4.5 hrs", price: 90 },
+        { name: "Messy Knot Style", duration: "2.5-3.5 hrs", price: 75 }
+      ]
+    },
+    "Bantu Knots for Short Hair": {
+      starting: 55,
+      variations: [
+        { name: "Micro Knots", duration: "2-3 hrs", price: 55 },
+        { name: "Tapered Knots", duration: "2.5-3.5 hrs", price: 65 },
+        { name: "Side Knots", duration: "2-3 hrs", price: 60 },
+        { name: "Crown Knots", duration: "2.5-3.5 hrs", price: 70 }
       ]
     }
   },
