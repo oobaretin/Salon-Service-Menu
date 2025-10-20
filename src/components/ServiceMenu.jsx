@@ -541,6 +541,80 @@ const SALON_DATA = {
     }
   },
 
+  "Crochet Braids": {
+    "Crochet Box Braids": {
+      starting: 100,
+      variations: [
+        { name: "Small Box Braids", duration: "2-3 hrs", price: 100 },
+        { name: "Medium Box Braids", duration: "3-4 hrs", price: 130 },
+        { name: "Large Box Braids", duration: "2.5-3.5 hrs", price: 120 },
+        { name: "Jumbo Box Braids", duration: "2-3 hrs", price: 110 }
+      ]
+    },
+    "Crochet Twists": {
+      starting: 120,
+      variations: [
+        { name: "Havana Twists", duration: "3-4 hrs", price: 120 },
+        { name: "Senegalese Twists", duration: "3.5-4.5 hrs", price: 140 },
+        { name: "Marley Twists", duration: "3-4 hrs", price: 130 },
+        { name: "Passion Twists", duration: "3.5-4.5 hrs", price: 150 }
+      ]
+    },
+    "Crochet Faux Locs": {
+      starting: 140,
+      variations: [
+        { name: "Soft Locs", duration: "3-4 hrs", price: 140 },
+        { name: "Goddess Locs", duration: "4-5 hrs", price: 170 },
+        { name: "Butterfly Locs", duration: "4-5 hrs", price: 180 },
+        { name: "Boho Locs", duration: "3.5-4.5 hrs", price: 160 }
+      ]
+    },
+    "Crochet Curls & Waves": {
+      starting: 110,
+      variations: [
+        { name: "Water Waves", duration: "2.5-3.5 hrs", price: 110 },
+        { name: "Deep Curls", duration: "3-4 hrs", price: 130 },
+        { name: "Beachy Waves", duration: "2.5-3.5 hrs", price: 120 },
+        { name: "Tight Ringlets", duration: "3-4 hrs", price: 140 }
+      ]
+    },
+    "Crochet Bobs & Short Styles": {
+      starting: 90,
+      variations: [
+        { name: "Crochet Bob", duration: "2-3 hrs", price: 90 },
+        { name: "Curly Pixie", duration: "2.5-3.5 hrs", price: 100 },
+        { name: "Textured Bob", duration: "2-3 hrs", price: 95 },
+        { name: "Short Curly Style", duration: "2.5-3.5 hrs", price: 105 }
+      ]
+    },
+    "Crochet Updos & Ponytails": {
+      starting: 130,
+      variations: [
+        { name: "High Ponytail", duration: "2.5-3.5 hrs", price: 130 },
+        { name: "Crochet Bun", duration: "2-3 hrs", price: 120 },
+        { name: "Half-Up Half-Down", duration: "3-4 hrs", price: 150 },
+        { name: "Crochet Updo", duration: "3.5-4.5 hrs", price: 170 }
+      ]
+    },
+    "Crochet Straight Styles": {
+      starting: 100,
+      variations: [
+        { name: "Straight Crochet", duration: "2-3 hrs", price: 100 },
+        { name: "Silky Straight", duration: "2.5-3.5 hrs", price: 120 },
+        { name: "Blunt Cut Straight", duration: "2-3 hrs", price: 110 },
+        { name: "Layered Straight", duration: "2.5-3.5 hrs", price: 130 }
+      ]
+    },
+    "Specialty Crochet Styles": {
+      starting: 150,
+      variations: [
+        { name: "Knotless Crochet", duration: "4-5 hrs", price: 150 },
+        { name: "Crochet with Highlights", duration: "4-6 hrs", price: 200 },
+        { name: "Ombre Crochet", duration: "4-6 hrs", price: 220 },
+        { name: "Colorful Crochet", duration: "4-6 hrs", price: 250 }
+      ]
+    }
+  },
   "Weaves/Extensions": {
     "Sew-In Weaves": {
       starting: 150,
