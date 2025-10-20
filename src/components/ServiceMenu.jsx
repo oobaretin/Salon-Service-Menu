@@ -4,18 +4,18 @@ import AdvancedBookingModal from './AdvancedBookingModal';
 
 // 🎯 CUSTOMIZE THIS DATA FOR EACH CLIENT
 const SALON_INFO = {
-  name: "Elite Braids & Beauty",
+  name: "Your Salon Name",
   phone: "(555) 123-4567",
-  email: "booking@elitebraids.com",
+  email: "booking@yoursalon.com",
   address: "123 Beauty Lane, Style City, SC 12345",
   hours: "Mon-Sat: 9AM-7PM, Sun: 10AM-5PM",
-  bookingUrl: "mailto:booking@elitebraids.com", // ← Email booking (works with Gmail, Outlook, etc.)
+  bookingUrl: "mailto:booking@yoursalon.com", // ← Email booking (works with Gmail, Outlook, etc.)
   // Alternative booking options:
   // bookingUrl: "https://wa.me/15551234567", // ← WhatsApp
   // bookingUrl: "tel:+15551234567", // ← Direct phone call
-  website: "https://elitebraids.com",
-  instagram: "@elitebraids",
-  description: "Professional braiding services with premium products and expert stylists"
+  website: "https://yoursalon.com",
+  instagram: "@yoursalon",
+  description: "Professional salon services with premium products and expert stylists"
 };
 
 // DATA STRUCTURE - Easy to modify for different clients
@@ -727,6 +727,7 @@ Please let me know your availability!`;
                 <li>Modify SALON_DATA pricing for their market</li>
                 <li>Change bookingUrl to their booking platform</li>
                 <li>Customize colors and branding as needed</li>
+                <li>Set up Google App Password for email notifications</li>
                 <li>Deploy and you're done!</li>
               </ol>
             </div>

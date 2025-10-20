@@ -21,15 +21,18 @@ import { ChevronDown, ChevronRight, Clock, Calendar, Phone, Mail, MapPin } from 
 
 // 🎯 CUSTOMIZE THIS DATA FOR EACH CLIENT
 const SALON_INFO = {
-  name: "Elite Braids & Beauty",
+  name: "Your Salon Name",
   phone: "(555) 123-4567",
-  email: "booking@elitebraids.com",
+  email: "booking@yoursalon.com",
   address: "123 Beauty Lane, Style City, SC 12345",
   hours: "Mon-Sat: 9AM-7PM, Sun: 10AM-5PM",
-  bookingUrl: "https://calendly.com/elitebraids", // ← Change this to your client's booking URL
-  website: "https://elitebraids.com",
-  instagram: "@elitebraids",
-  description: "Professional braiding services with premium products and expert stylists"
+  bookingUrl: "mailto:booking@yoursalon.com", // ← Email booking (works with Gmail, Outlook, etc.)
+  // Alternative booking options:
+  // bookingUrl: "https://wa.me/15551234567", // ← WhatsApp
+  // bookingUrl: "tel:+15551234567", // ← Direct phone call
+  website: "https://yoursalon.com",
+  instagram: "@yoursalon",
+  description: "Professional salon services with premium products and expert stylists"
 };
 
 const SALON_DATA = {

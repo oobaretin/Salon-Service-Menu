@@ -1,4 +1,4 @@
-# 🎨 Salon Service Menu - Project Summary
+# 🎨 Salon Service Menu - White Label Template
 
 ## ✅ Project Complete!
 

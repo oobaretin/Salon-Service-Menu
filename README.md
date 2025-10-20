@@ -1,4 +1,4 @@
-# 🚀 Salon Service Menu - Complete Project Setup Guide
+# 🚀 Salon Service Menu - White Label Template
 
 ## 📁 Project Structure
 
