@@ -409,22 +409,80 @@ const SALON_DATA = {
   },
   "Kid Styles": {
     "Kid's Box Braids": {
-      starting: 80,
+      starting: 60,
       variations: [
-        { name: "Shoulder Length Large", duration: "3-4 hours", price: 80 },
-        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 100 },
-        { name: "Shoulder Length Small", duration: "3-4 hours", price: 125 },
-        { name: "Mid Back Length Large", duration: "3-4 hours", price: 125 },
-        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 140 },
-        { name: "Mid Back Length Small", duration: "3-4 hours", price: 150 }
+        { name: "Small Box Braids", duration: "2-3 hrs", price: 60 },
+        { name: "Medium Box Braids", duration: "2.5-3.5 hrs", price: 80 },
+        { name: "Large Box Braids", duration: "3-4 hrs", price: 100 }
       ]
     },
-    "Kid's Ponytail Buns": {
-      starting: 75,
+    "Kid's Cornrows": {
+      starting: 40,
       variations: [
-        { name: "Shoulder Length Large", duration: "3-4 hours", price: 75 },
-        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 140 },
-        { name: "Shoulder Length Small", duration: "3-4 hours", price: 150 }
+        { name: "Simple Straight Back", duration: "1-2 hrs", price: 40 },
+        { name: "Double Cornrows", duration: "1.5-2.5 hrs", price: 60 },
+        { name: "Creative Patterns", duration: "2-3 hrs", price: 80 }
+      ]
+    },
+    "Kid's French & Dutch Braids": {
+      starting: 35,
+      variations: [
+        { name: "Single French Braid", duration: "30-45 min", price: 35 },
+        { name: "Double French Braids", duration: "45-60 min", price: 50 },
+        { name: "Single Dutch Braid", duration: "30-45 min", price: 40 },
+        { name: "Double Dutch Braids", duration: "45-60 min", price: 55 }
+      ]
+    },
+    "Kid's Ponytails & Buns": {
+      starting: 30,
+      variations: [
+        { name: "High Ponytail", duration: "30 min", price: 30 },
+        { name: "Space Buns", duration: "45 min", price: 45 },
+        { name: "Braided Bun", duration: "1 hr", price: 60 },
+        { name: "Half-Up Half-Down", duration: "45 min", price: 50 }
+      ]
+    },
+    "Kid's Bantu Knots": {
+      starting: 50,
+      variations: [
+        { name: "Small Knots", duration: "1.5-2 hrs", price: 50 },
+        { name: "Medium Knots", duration: "2-2.5 hrs", price: 70 },
+        { name: "Large Knots", duration: "2.5-3 hrs", price: 90 }
+      ]
+    },
+    "Kid's Twists": {
+      starting: 45,
+      variations: [
+        { name: "Simple Twists", duration: "1-1.5 hrs", price: 45 },
+        { name: "Two-Strand Twists", duration: "1.5-2 hrs", price: 65 },
+        { name: "Flat Twists", duration: "2-2.5 hrs", price: 80 }
+      ]
+    },
+    "Kid's Natural Hair Styles": {
+      starting: 25,
+      variations: [
+        { name: "Wash & Go", duration: "30-45 min", price: 25 },
+        { name: "Puff Styles", duration: "30-45 min", price: 35 },
+        { name: "Afro Styling", duration: "45-60 min", price: 45 },
+        { name: "Curl Definition", duration: "1 hr", price: 55 }
+      ]
+    },
+    "Kid's Special Occasion": {
+      starting: 80,
+      variations: [
+        { name: "Formal Updo", duration: "1.5-2 hrs", price: 80 },
+        { name: "Braided Crown", duration: "2-2.5 hrs", price: 100 },
+        { name: "Accessorized Style", duration: "1-1.5 hrs", price: 70 },
+        { name: "Waterfall Braid", duration: "1.5-2 hrs", price: 90 }
+      ]
+    },
+    "Kid's Haircuts": {
+      starting: 20,
+      variations: [
+        { name: "Simple Trim", duration: "30 min", price: 20 },
+        { name: "Layered Cut", duration: "45 min", price: 35 },
+        { name: "Bob Cut", duration: "45-60 min", price: 40 },
+        { name: "Buzz Cut", duration: "30 min", price: 25 }
       ]
     }
   },
