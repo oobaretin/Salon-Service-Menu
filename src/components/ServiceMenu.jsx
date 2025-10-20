@@ -475,15 +475,6 @@ const SALON_DATA = {
         { name: "Accessorized Style", duration: "1-1.5 hrs", price: 70 },
         { name: "Waterfall Braid", duration: "1.5-2 hrs", price: 90 }
       ]
-    },
-    "Kid's Haircuts": {
-      starting: 20,
-      variations: [
-        { name: "Simple Trim", duration: "30 min", price: 20 },
-        { name: "Layered Cut", duration: "45 min", price: 35 },
-        { name: "Bob Cut", duration: "45-60 min", price: 40 },
-        { name: "Buzz Cut", duration: "30 min", price: 25 }
-      ]
     }
   },
   "Cornrows": {
