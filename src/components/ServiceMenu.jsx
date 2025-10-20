@@ -429,6 +429,34 @@ const SALON_DATA = {
         { name: "Intricate Criss-Cross", duration: "6-7 hrs", price: 170 }
       ]
     },
+    "French Braids": {
+      starting: 40,
+      variations: [
+        { name: "Single French Braid", duration: "1-1.5 hrs", price: 40 },
+        { name: "Double French Braids", duration: "1.5-2 hrs", price: 60 },
+        { name: "French Braid with Extensions", duration: "2-2.5 hrs", price: 80 },
+        { name: "Exotic French Braids (2)", duration: "1.5-2 hrs", price: 125 }
+      ]
+    },
+    "Dutch Braids": {
+      starting: 45,
+      variations: [
+        { name: "Single Dutch Braid", duration: "1-1.5 hrs", price: 45 },
+        { name: "Double Dutch Braids", duration: "1.5-2 hrs", price: 65 },
+        { name: "Dutch Braid with Extensions", duration: "2-2.5 hrs", price: 85 },
+        { name: "Feed-In Dutch Braids", duration: "2-3 hrs", price: 100 }
+      ]
+    },
+    "French/Dutch Combinations": {
+      starting: 70,
+      variations: [
+        { name: "French + Dutch Combo", duration: "2-2.5 hrs", price: 70 },
+        { name: "Multiple French Braids", duration: "2-3 hrs", price: 90 },
+        { name: "Multiple Dutch Braids", duration: "2-3 hrs", price: 95 },
+        { name: "Crown French Braid", duration: "1.5-2 hrs", price: 75 },
+        { name: "Crown Dutch Braid", duration: "1.5-2 hrs", price: 80 }
+      ]
+    },
     "Cornrow Updo": {
       starting: 80,
       variations: [
