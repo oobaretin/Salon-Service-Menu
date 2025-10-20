@@ -386,189 +386,41 @@ const SALON_DATA = {
 
   "Weaves/Extensions": {
     "Sew-In Weaves": {
-      "Seamless Sew-In with Leave Out": {
-        starting: 150,
-        variations: [
-          { name: "Short Length (8-12 inches)", duration: "2 hrs", price: 150 },
-          { name: "Medium Length (14-16 inches)", duration: "2.5 hrs", price: 175 },
-          { name: "Long Length (18-20 inches)", duration: "3 hrs", price: 200 },
-          { name: "Extra Long (22-24 inches)", duration: "3.5 hrs", price: 225 }
-        ]
-      },
-      "Closure Sew-In": {
-        starting: 165,
-        variations: [
-          { name: "4x4 Closure Short (8-12 inches)", duration: "2.5 hrs", price: 165 },
-          { name: "4x4 Closure Medium (14-16 inches)", duration: "3 hrs", price: 190 },
-          { name: "4x4 Closure Long (18-20 inches)", duration: "3.5 hrs", price: 215 },
-          { name: "4x4 Closure Extra Long (22-24 inches)", duration: "4 hrs", price: 240 },
-          { name: "5x5 Closure Short (8-12 inches)", duration: "2.5 hrs", price: 175 },
-          { name: "5x5 Closure Medium (14-16 inches)", duration: "3 hrs", price: 200 },
-          { name: "5x5 Closure Long (18-20 inches)", duration: "3.5 hrs", price: 225 },
-          { name: "5x5 Closure Extra Long (22-24 inches)", duration: "4 hrs", price: 250 }
-        ]
-      },
-      "Frontal Sew-In": {
-        starting: 200,
-        variations: [
-          { name: "13x4 Frontal Short (8-12 inches)", duration: "3 hrs", price: 200 },
-          { name: "13x4 Frontal Medium (14-16 inches)", duration: "3.5 hrs", price: 225 },
-          { name: "13x4 Frontal Long (18-20 inches)", duration: "4 hrs", price: 250 },
-          { name: "13x4 Frontal Extra Long (22-24 inches)", duration: "4.5 hrs", price: 275 },
-          { name: "13x6 Frontal Short (8-12 inches)", duration: "3 hrs", price: 215 },
-          { name: "13x6 Frontal Medium (14-16 inches)", duration: "3.5 hrs", price: 240 },
-          { name: "13x6 Frontal Long (18-20 inches)", duration: "4 hrs", price: 265 },
-          { name: "13x6 Frontal Extra Long (22-24 inches)", duration: "4.5 hrs", price: 290 },
-          { name: "360 Frontal Short (8-12 inches)", duration: "3.5 hrs", price: 250 },
-          { name: "360 Frontal Medium (14-16 inches)", duration: "4 hrs", price: 275 },
-          { name: "360 Frontal Long (18-20 inches)", duration: "4.5 hrs", price: 300 },
-          { name: "360 Frontal Extra Long (22-24 inches)", duration: "5 hrs", price: 325 }
-        ]
-      },
-      "Extra Bundle Addition": {
-        starting: 25,
-        variations: [
-          { name: "1 Additional Bundle", duration: "30 min", price: 25 },
-          { name: "2 Additional Bundles", duration: "45 min", price: 45 },
-          { name: "3 Additional Bundles", duration: "1 hr", price: 65 }
-        ]
-      }
+      starting: 150,
+      variations: [
+        { name: "Seamless Sew-In with Leave Out", duration: "2-3.5 hrs", price: 150 },
+        { name: "Closure Sew-In (4x4)", duration: "2.5-4 hrs", price: 165 },
+        { name: "Closure Sew-In (5x5)", duration: "2.5-4 hrs", price: 175 },
+        { name: "Frontal Sew-In (13x4)", duration: "3-4.5 hrs", price: 200 },
+        { name: "Frontal Sew-In (13x6)", duration: "3-4.5 hrs", price: 215 },
+        { name: "360 Frontal", duration: "3.5-5 hrs", price: 250 },
+        { name: "Extra Bundle Addition", duration: "30 min - 1 hr", price: 25 }
+      ]
     },
     "Quick Weaves": {
-      "Traditional Quick Weave": {
-        starting: 130,
-        variations: [
-          { name: "Short Bob (8-10 inches)", duration: "1.5 hrs", price: 130 },
-          { name: "Medium Length (12-14 inches)", duration: "2 hrs", price: 150 },
-          { name: "Long Length (16-18 inches)", duration: "2.5 hrs", price: 170 },
-          { name: "Extra Long (20+ inches)", duration: "3 hrs", price: 190 }
-        ]
-      },
-      "Quick Weave + 6-8 Braids": {
-        starting: 145,
-        variations: [
-          { name: "Short Length (8-10 inches)", duration: "2 hrs", price: 145 },
-          { name: "Medium Length (12-14 inches)", duration: "2.5 hrs", price: 165 },
-          { name: "Long Length (16-18 inches)", duration: "3 hrs", price: 185 },
-          { name: "Extra Long (20+ inches)", duration: "3.5 hrs", price: 205 }
-        ]
-      },
-      "2 Braids w/ Quick Weave": {
-        starting: 135,
-        variations: [
-          { name: "Short Length (8-10 inches)", duration: "1.5 hrs", price: 135 },
-          { name: "Medium Length (12-14 inches)", duration: "2 hrs", price: 155 },
-          { name: "Long Length (16-18 inches)", duration: "2.5 hrs", price: 175 }
-        ]
-      },
-      "Braid Down Quick Weave (10-12 braids)": {
-        starting: 155,
-        variations: [
-          { name: "Short Length (8-10 inches)", duration: "2 hrs", price: 155 },
-          { name: "Medium Length (12-14 inches)", duration: "2.5 hrs", price: 175 },
-          { name: "Long Length (16-18 inches)", duration: "3 hrs", price: 195 },
-          { name: "Extra Long (20+ inches)", duration: "3.5 hrs", price: 215 }
-        ]
-      },
-      "Natural Luxury Quick Weave": {
-        starting: 165,
-        variations: [
-          { name: "Short Length (8-10 inches)", duration: "2 hrs", price: 165 },
-          { name: "Medium Length (12-14 inches)", duration: "2.5 hrs", price: 185 },
-          { name: "Long Length (16-18 inches)", duration: "3 hrs", price: 205 },
-          { name: "Extra Long (20+ inches)", duration: "3.5 hrs", price: 225 }
-        ]
-      },
-      "Flip Over Quick Weave": {
-        starting: 150,
-        variations: [
-          { name: "Short Length (8-10 inches)", duration: "2 hrs", price: 150 },
-          { name: "Medium Length (12-14 inches)", duration: "2.5 hrs", price: 170 },
-          { name: "Long Length (16-18 inches)", duration: "3 hrs", price: 190 }
-        ]
-      },
-      "Glueless HD Closure Quick Weave (2x6)": {
-        starting: 165,
-        variations: [
-          { name: "Short Length (8-10 inches)", duration: "2 hrs", price: 165 },
-          { name: "Medium Length (12-14 inches)", duration: "2.5 hrs", price: 185 },
-          { name: "Long Length (16-18 inches)", duration: "3 hrs", price: 205 },
-          { name: "Extra Long (20+ inches)", duration: "3.5 hrs", price: 225 }
-        ]
-      },
-      "Quick Weave with Leave Out": {
-        starting: 140,
-        variations: [
-          { name: "Short Length (8-10 inches)", duration: "1.5 hrs", price: 140 },
-          { name: "Medium Length (12-14 inches)", duration: "2 hrs", price: 160 },
-          { name: "Long Length (16-18 inches)", duration: "2.5 hrs", price: 180 },
-          { name: "Extra Long (20+ inches)", duration: "3 hrs", price: 200 }
-        ]
-      },
-      "Full Closure Quick Weave": {
-        starting: 165,
-        variations: [
-          { name: "Short Length (8-10 inches)", duration: "2 hrs", price: 165 },
-          { name: "Medium Length (12-14 inches)", duration: "2.5 hrs", price: 185 },
-          { name: "Long Length (16-18 inches)", duration: "3 hrs", price: 205 },
-          { name: "Extra Long (20+ inches)", duration: "3.5 hrs", price: 225 }
-        ]
-      }
+      starting: 130,
+      variations: [
+        { name: "Traditional Quick Weave", duration: "1.5-3 hrs", price: 130 },
+        { name: "Quick Weave + 6-8 Braids", duration: "2-3.5 hrs", price: 145 },
+        { name: "2 Braids w/ Quick Weave", duration: "1.5-2.5 hrs", price: 135 },
+        { name: "Braid Down Quick Weave (10-12 braids)", duration: "2-3.5 hrs", price: 155 },
+        { name: "Natural Luxury Quick Weave", duration: "2-3.5 hrs", price: 165 },
+        { name: "Flip Over Quick Weave", duration: "2-3 hrs", price: 150 },
+        { name: "Glueless HD Closure Quick Weave (2x6)", duration: "2-3.5 hrs", price: 165 },
+        { name: "Quick Weave with Leave Out", duration: "1.5-3 hrs", price: 140 },
+        { name: "Full Closure Quick Weave", duration: "2-3.5 hrs", price: 165 }
+      ]
     },
     "Ponytails": {
-      "Braid Pony (High or Mid)": {
-        starting: 75,
-        variations: [
-          { name: "Short Ponytail (10-12 inches)", duration: "1 hr", price: 75 },
-          { name: "Medium Ponytail (14-16 inches)", duration: "1.5 hrs", price: 90 },
-          { name: "Long Ponytail (18-20 inches)", duration: "2 hrs", price: 105 },
-          { name: "Extra Long Ponytail (22+ inches)", duration: "2.5 hrs", price: 120 }
-        ]
-      },
-      "Middle Part Ponytail": {
-        starting: 80,
-        variations: [
-          { name: "Short Length (10-12 inches)", duration: "1 hr", price: 80 },
-          { name: "Medium Length (14-16 inches)", duration: "1.5 hrs", price: 95 },
-          { name: "Long Length (18-20 inches)", duration: "2 hrs", price: 110 },
-          { name: "Extra Long (22+ inches)", duration: "2.5 hrs", price: 125 }
-        ]
-      },
-      "Low Swoop Ponytail": {
-        starting: 85,
-        variations: [
-          { name: "Short Length (10-12 inches)", duration: "1.5 hrs", price: 85 },
-          { name: "Medium Length (14-16 inches)", duration: "2 hrs", price: 100 },
-          { name: "Long Length (18-20 inches)", duration: "2.5 hrs", price: 115 },
-          { name: "Extra Long (22+ inches)", duration: "3 hrs", price: 130 }
-        ]
-      },
-      "Sleek Pony (Mid/High)": {
-        starting: 90,
-        variations: [
-          { name: "Short Length (10-12 inches)", duration: "1.5 hrs", price: 90 },
-          { name: "Medium Length (14-16 inches)", duration: "2 hrs", price: 105 },
-          { name: "Long Length (18-20 inches)", duration: "2.5 hrs", price: 120 },
-          { name: "Extra Long (22+ inches)", duration: "3 hrs", price: 135 }
-        ]
-      },
-      "Half Up Half Down": {
-        starting: 95,
-        variations: [
-          { name: "Short to Medium (10-14 inches)", duration: "2 hrs", price: 95 },
-          { name: "Medium to Long (16-18 inches)", duration: "2.5 hrs", price: 110 },
-          { name: "Long to Extra Long (20+ inches)", duration: "3 hrs", price: 125 }
-        ]
-      },
-      "Knot Bun (High or Low)": {
-        starting: 85,
-        variations: [
-          { name: "Small Bun", duration: "1 hr", price: 85 },
-          { name: "Medium Bun", duration: "1.5 hrs", price: 100 },
-          { name: "Large Bun", duration: "2 hrs", price: 115 },
-          { name: "Extra Large/Voluminous Bun", duration: "2.5 hrs", price: 130 }
-        ]
-      }
+      starting: 75,
+      variations: [
+        { name: "Braid Pony (High or Mid)", duration: "1-2.5 hrs", price: 75 },
+        { name: "Middle Part Ponytail", duration: "1-2.5 hrs", price: 80 },
+        { name: "Low Swoop Ponytail", duration: "1.5-3 hrs", price: 85 },
+        { name: "Sleek Pony (Mid/High)", duration: "1.5-3 hrs", price: 90 },
+        { name: "Half Up Half Down", duration: "2-3 hrs", price: 95 },
+        { name: "Knot Bun (High or Low)", duration: "1-2.5 hrs", price: 85 }
+      ]
     }
   }
 };
