@@ -24,130 +24,130 @@ const SALON_DATA = {
     "Box Braids": {
       starting: 180,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 180 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 200 },
-        { name: "Waist Length Large", duration: "45 min", price: 200 },
-        { name: "Thigh Length Large", duration: "45 min", price: 200 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 220 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 230 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 240 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 260 },
-        { name: "Waist Length Medium", duration: "45 min", price: 280 },
-        { name: "Waist Length Small", duration: "45 min", price: 300 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 320 },
-        { name: "Thigh Length Small", duration: "45 min", price: 340 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 180 },
+        { name: "Shoulder Length Medium", duration: "4-5 hours", price: 200 },
+        { name: "Waist Length Large", duration: "4-5 hours", price: 200 },
+        { name: "Thigh Length Large", duration: "5-6 hours", price: 200 },
+        { name: "Mid Back Length Large", duration: "4-5 hours", price: 220 },
+        { name: "Shoulder Length Small", duration: "5-6 hours", price: 230 },
+        { name: "Mid Back Length Medium", duration: "5-6 hours", price: 240 },
+        { name: "Mid Back Length Small", duration: "6-7 hours", price: 260 },
+        { name: "Waist Length Medium", duration: "6-7 hours", price: 280 },
+        { name: "Waist Length Small", duration: "7-8 hours", price: 300 },
+        { name: "Thigh Length Medium", duration: "7-8 hours", price: 320 },
+        { name: "Thigh Length Small", duration: "8-9 hours", price: 340 }
       ]
     },
     "Bohemian Box Braids": {
       starting: 200,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 230 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 250 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 250 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 260 },
-        { name: "Waist Length Large", duration: "45 min", price: 270 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 290 },
-        { name: "Waist Length Medium", duration: "45 min", price: 300 },
-        { name: "Thigh Length Large", duration: "45 min", price: 300 },
-        { name: "Waist Length Small", duration: "45 min", price: 320 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 340 },
-        { name: "Thigh Length Small", duration: "45 min", price: 360 }
+        { name: "Shoulder Length Large", duration: "4-5 hours", price: 200 },
+        { name: "Shoulder Length Medium", duration: "5-6 hours", price: 230 },
+        { name: "Mid Back Length Large", duration: "5-6 hours", price: 250 },
+        { name: "Shoulder Length Small", duration: "6-7 hours", price: 250 },
+        { name: "Mid Back Length Medium", duration: "6-7 hours", price: 260 },
+        { name: "Waist Length Large", duration: "6-7 hours", price: 270 },
+        { name: "Mid Back Length Small", duration: "7-8 hours", price: 290 },
+        { name: "Waist Length Medium", duration: "7-8 hours", price: 300 },
+        { name: "Thigh Length Large", duration: "7-8 hours", price: 300 },
+        { name: "Waist Length Small", duration: "8-9 hours", price: 320 },
+        { name: "Thigh Length Medium", duration: "8-9 hours", price: 340 },
+        { name: "Thigh Length Small", duration: "9-10 hours", price: 360 }
       ]
     },
     "Micro Braids": {
       starting: 300,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 300 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 320 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 340 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 360 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 360 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 380 },
-        { name: "Waist Length Large", duration: "45 min", price: 420 },
-        { name: "Waist Length Medium", duration: "45 min", price: 460 },
-        { name: "Waist Length Small", duration: "45 min", price: 470 },
-        { name: "Thigh Length Large", duration: "45 min", price: 600 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 650 },
-        { name: "Thigh Length Small", duration: "45 min", price: 680 }
+        { name: "Shoulder Length Large", duration: "6-8 hours", price: 300 },
+        { name: "Mid Back Length Large", duration: "7-9 hours", price: 320 },
+        { name: "Shoulder Length Medium", duration: "8-10 hours", price: 340 },
+        { name: "Shoulder Length Small", duration: "10-12 hours", price: 360 },
+        { name: "Mid Back Length Medium", duration: "9-11 hours", price: 360 },
+        { name: "Mid Back Length Small", duration: "11-13 hours", price: 380 },
+        { name: "Waist Length Large", duration: "10-12 hours", price: 420 },
+        { name: "Waist Length Medium", duration: "12-14 hours", price: 460 },
+        { name: "Waist Length Small", duration: "13-15 hours", price: 470 },
+        { name: "Thigh Length Large", duration: "12-14 hours", price: 600 },
+        { name: "Thigh Length Medium", duration: "14-16 hours", price: 650 },
+        { name: "Thigh Length Small", duration: "15-18 hours", price: 680 }
       ]
     },
     "Bob Box Braids": {
       starting: 200,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 230 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 250 }
+        { name: "Shoulder Length Large", duration: "2-3 hours", price: 200 },
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 230 },
+        { name: "Shoulder Length Small", duration: "4-5 hours", price: 250 }
       ]
     },
     "Jumbo Box Braids": {
       starting: 180,
       variations: [
-        { name: "Shoulder Length Jumbo", duration: "45 min", price: 180 },
-        { name: "Mid Back Length Jumbo", duration: "45 min", price: 200 },
-        { name: "Thigh Length Jumbo", duration: "45 min", price: 220 }
+        { name: "Shoulder Length Jumbo", duration: "2-3 hours", price: 180 },
+        { name: "Mid Back Length Jumbo", duration: "3-4 hours", price: 200 },
+        { name: "Thigh Length Jumbo", duration: "4-5 hours", price: 220 }
       ]
     },
     "Feed In Braids": {
       starting: 50,
       variations: [
-        { name: "2 Braids", duration: "45 min", price: 50 },
-        { name: "3 Braids", duration: "45 min", price: 60 },
-        { name: "4 Braids", duration: "45 min", price: 70 },
-        { name: "6 Braids", duration: "45 min", price: 85 },
-        { name: "8 Braids", duration: "45 min", price: 100 },
-        { name: "10 Braids", duration: "45 min", price: 150 }
+        { name: "2 Braids", duration: "1-2 hours", price: 50 },
+        { name: "3 Braids", duration: "1.5-2.5 hours", price: 60 },
+        { name: "4 Braids", duration: "2-3 hours", price: 70 },
+        { name: "6 Braids", duration: "3-4 hours", price: 85 },
+        { name: "8 Braids", duration: "4-5 hours", price: 100 },
+        { name: "10 Braids", duration: "5-6 hours", price: 150 }
       ]
     },
     "Fulani Braids": {
       starting: 125,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 125 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 135 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 145 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 150 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 165 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 175 },
-        { name: "Waist Length Large", duration: "45 min", price: 225 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 245 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 275 },
-        { name: "Thigh Length Large", duration: "45 min", price: 285 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 300 },
-        { name: "Thigh Length Large", duration: "45 min", price: 400 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 125 },
+        { name: "Shoulder Length Medium", duration: "4-5 hours", price: 135 },
+        { name: "Shoulder Length Small", duration: "5-6 hours", price: 145 },
+        { name: "Mid Back Length Large", duration: "4-5 hours", price: 150 },
+        { name: "Mid Back Length Medium", duration: "5-6 hours", price: 165 },
+        { name: "Mid Back Length Small", duration: "6-7 hours", price: 175 },
+        { name: "Waist Length Large", duration: "5-6 hours", price: 225 },
+        { name: "Mid Back Length Medium", duration: "6-7 hours", price: 245 },
+        { name: "Mid Back Length Small", duration: "7-8 hours", price: 275 },
+        { name: "Thigh Length Large", duration: "6-7 hours", price: 285 },
+        { name: "Thigh Length Medium", duration: "7-8 hours", price: 300 },
+        { name: "Thigh Length Large", duration: "8-9 hours", price: 400 }
       ]
     },
     "Lemonade Braids": {
       starting: 100,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 100 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 120 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 150 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 150 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 180 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 200 },
-        { name: "Waist Length Large", duration: "45 min", price: 200 },
-        { name: "Waist Length Medium", duration: "45 min", price: 240 },
-        { name: "Thigh Length Large", duration: "45 min", price: 250 },
-        { name: "Waist Length Small", duration: "45 min", price: 260 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 280 },
-        { name: "Thigh Length Small", duration: "45 min", price: 300 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 100 },
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 120 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 150 },
+        { name: "Mid Back Length Large", duration: "3-4 hours", price: 150 },
+        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 180 },
+        { name: "Mid Back Length Small", duration: "3-4 hours", price: 200 },
+        { name: "Waist Length Large", duration: "3-4 hours", price: 200 },
+        { name: "Waist Length Medium", duration: "3-4 hours", price: 240 },
+        { name: "Thigh Length Large", duration: "3-4 hours", price: 250 },
+        { name: "Waist Length Small", duration: "3-4 hours", price: 260 },
+        { name: "Thigh Length Medium", duration: "3-4 hours", price: 280 },
+        { name: "Thigh Length Small", duration: "3-4 hours", price: 300 }
       ]
     },
     "Bora Bora Braids": {
       starting: 200,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 230 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 240 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 260 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 270 },
-        { name: "Waist Length Large", duration: "45 min", price: 270 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 290 },
-        { name: "Thigh Length Large", duration: "45 min", price: 290 },
-        { name: "Waist Length Medium", duration: "45 min", price: 300 },
-        { name: "Waist Length Small", duration: "45 min", price: 320 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 320 },
-        { name: "Thigh Length Small", duration: "45 min", price: 350 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 200 },
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 230 },
+        { name: "Mid Back Length Large", duration: "3-4 hours", price: 240 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 260 },
+        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 270 },
+        { name: "Waist Length Large", duration: "3-4 hours", price: 270 },
+        { name: "Mid Back Length Small", duration: "3-4 hours", price: 290 },
+        { name: "Thigh Length Large", duration: "3-4 hours", price: 290 },
+        { name: "Waist Length Medium", duration: "3-4 hours", price: 300 },
+        { name: "Waist Length Small", duration: "3-4 hours", price: 320 },
+        { name: "Thigh Length Medium", duration: "3-4 hours", price: 320 },
+        { name: "Thigh Length Small", duration: "3-4 hours", price: 350 }
       ]
     }
   },
@@ -155,107 +155,107 @@ const SALON_DATA = {
     "Havana Twist": {
       starting: 200,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 220 },
-        { name: "Waist Length Medium", duration: "45 min", price: 225 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 230 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 250 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 260 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 275 },
-        { name: "Waist Length Small", duration: "45 min", price: 350 },
-        { name: "Thigh Length Large", duration: "45 min", price: 380 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 400 },
-        { name: "Thigh Length Small", duration: "45 min", price: 450 },
-        { name: "Waist Length Large", duration: "45 min", price: 500 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 200 },
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 220 },
+        { name: "Waist Length Medium", duration: "3-4 hours", price: 225 },
+        { name: "Mid Back Length Large", duration: "3-4 hours", price: 230 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 250 },
+        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 260 },
+        { name: "Mid Back Length Small", duration: "3-4 hours", price: 275 },
+        { name: "Waist Length Small", duration: "3-4 hours", price: 350 },
+        { name: "Thigh Length Large", duration: "3-4 hours", price: 380 },
+        { name: "Thigh Length Medium", duration: "3-4 hours", price: 400 },
+        { name: "Thigh Length Small", duration: "3-4 hours", price: 450 },
+        { name: "Waist Length Large", duration: "3-4 hours", price: 500 }
       ]
     },
     "Senegalese Twists": {
       starting: 300,
       variations: [
-        { name: "Shoulder Length Medium", duration: "45 min", price: 300 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 350 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 350 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 380 },
-        { name: "Waist Length Medium", duration: "45 min", price: 400 },
-        { name: "Waist Length Small", duration: "45 min", price: 450 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 475 },
-        { name: "Thigh Length Small", duration: "45 min", price: 500 }
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 300 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 350 },
+        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 350 },
+        { name: "Mid Back Length Small", duration: "3-4 hours", price: 380 },
+        { name: "Waist Length Medium", duration: "3-4 hours", price: 400 },
+        { name: "Waist Length Small", duration: "3-4 hours", price: 450 },
+        { name: "Thigh Length Medium", duration: "3-4 hours", price: 475 },
+        { name: "Thigh Length Small", duration: "3-4 hours", price: 500 }
       ]
     },
     "Passion Twist": {
       starting: 175,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 175 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 200 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 245 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 250 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 260 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 275 },
-        { name: "Waist Length Large", duration: "45 min", price: 325 },
-        { name: "Waist Length Medium", duration: "45 min", price: 350 },
-        { name: "Waist Length Small", duration: "45 min", price: 375 },
-        { name: "Thigh Length Large", duration: "45 min", price: 400 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 445 },
-        { name: "Thigh Length Small", duration: "45 min", price: 475 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 175 },
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 200 },
+        { name: "Mid Back Length Large", duration: "3-4 hours", price: 245 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 250 },
+        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 260 },
+        { name: "Mid Back Length Small", duration: "3-4 hours", price: 275 },
+        { name: "Waist Length Large", duration: "3-4 hours", price: 325 },
+        { name: "Waist Length Medium", duration: "3-4 hours", price: 350 },
+        { name: "Waist Length Small", duration: "3-4 hours", price: 375 },
+        { name: "Thigh Length Large", duration: "3-4 hours", price: 400 },
+        { name: "Thigh Length Medium", duration: "3-4 hours", price: 445 },
+        { name: "Thigh Length Small", duration: "3-4 hours", price: 475 }
       ]
     },
     "Kinky Twists": {
       starting: 200,
       variations: [
-        { name: "Shoulder Length Medium", duration: "45 min", price: 200 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 260 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 275 },
-        { name: "Waist Length Medium", duration: "45 min", price: 350 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 375 },
-        { name: "Waist Length Small", duration: "45 min", price: 375 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 400 },
-        { name: "Thigh Length Small", duration: "45 min", price: 450 }
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 200 },
+        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 260 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 275 },
+        { name: "Waist Length Medium", duration: "3-4 hours", price: 350 },
+        { name: "Mid Back Length Small", duration: "3-4 hours", price: 375 },
+        { name: "Waist Length Small", duration: "3-4 hours", price: 375 },
+        { name: "Thigh Length Medium", duration: "3-4 hours", price: 400 },
+        { name: "Thigh Length Small", duration: "3-4 hours", price: 450 }
       ]
     },
     "Marley Twists": {
       starting: 200,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 220 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 230 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 250 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 260 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 275 },
-        { name: "Waist Length Large", duration: "45 min", price: 300 },
-        { name: "Waist Length Medium", duration: "45 min", price: 325 },
-        { name: "Waist Length Small", duration: "45 min", price: 350 },
-        { name: "Thigh Length Large", duration: "45 min", price: 380 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 425 },
-        { name: "Thigh Length Small", duration: "45 min", price: 450 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 200 },
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 220 },
+        { name: "Mid Back Length Large", duration: "3-4 hours", price: 230 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 250 },
+        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 260 },
+        { name: "Mid Back Length Small", duration: "3-4 hours", price: 275 },
+        { name: "Waist Length Large", duration: "3-4 hours", price: 300 },
+        { name: "Waist Length Medium", duration: "3-4 hours", price: 325 },
+        { name: "Waist Length Small", duration: "3-4 hours", price: 350 },
+        { name: "Thigh Length Large", duration: "3-4 hours", price: 380 },
+        { name: "Thigh Length Medium", duration: "3-4 hours", price: 425 },
+        { name: "Thigh Length Small", duration: "3-4 hours", price: 450 }
       ]
     },
     "Nubian Twist": {
       starting: 225,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 225 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 225 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 245 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 250 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 285 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 300 },
-        { name: "Waist Length Large", duration: "45 min", price: 345 },
-        { name: "Waist Length Medium", duration: "45 min", price: 360 },
-        { name: "Waist Length Small", duration: "45 min", price: 380 },
-        { name: "Thigh Length Large", duration: "45 min", price: 400 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 425 },
-        { name: "Thigh Length Small", duration: "45 min", price: 450 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 225 },
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 225 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 245 },
+        { name: "Mid Back Length Large", duration: "3-4 hours", price: 250 },
+        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 285 },
+        { name: "Mid Back Length Small", duration: "3-4 hours", price: 300 },
+        { name: "Waist Length Large", duration: "3-4 hours", price: 345 },
+        { name: "Waist Length Medium", duration: "3-4 hours", price: 360 },
+        { name: "Waist Length Small", duration: "3-4 hours", price: 380 },
+        { name: "Thigh Length Large", duration: "3-4 hours", price: 400 },
+        { name: "Thigh Length Medium", duration: "3-4 hours", price: 425 },
+        { name: "Thigh Length Small", duration: "3-4 hours", price: 450 }
       ]
     },
     "Comb Twist": {
       starting: 75,
       variations: [
-        { name: "Standard", duration: "45 min", price: 75 }
+        { name: "Standard", duration: "3-4 hours", price: 75 }
       ]
     },
     "Two Strand Twist": {
       starting: 100,
       variations: [
-        { name: "Standard", duration: "45 min", price: 100 }
+        { name: "Standard", duration: "3-4 hours", price: 100 }
       ]
     }
   },
@@ -263,52 +263,52 @@ const SALON_DATA = {
     "Goddess Locs": {
       starting: 200,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 230 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 245 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 250 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 260 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 275 },
-        { name: "Waist Length Small", duration: "45 min", price: 275 },
-        { name: "Waist Length Large", duration: "45 min", price: 325 },
-        { name: "Waist Length Medium", duration: "45 min", price: 350 },
-        { name: "Thigh Length Large", duration: "45 min", price: 400 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 430 },
-        { name: "Thigh Length Small", duration: "45 min", price: 475 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 200 },
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 230 },
+        { name: "Mid Back Length Large", duration: "3-4 hours", price: 245 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 250 },
+        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 260 },
+        { name: "Mid Back Length Small", duration: "3-4 hours", price: 275 },
+        { name: "Waist Length Small", duration: "3-4 hours", price: 275 },
+        { name: "Waist Length Large", duration: "3-4 hours", price: 325 },
+        { name: "Waist Length Medium", duration: "3-4 hours", price: 350 },
+        { name: "Thigh Length Large", duration: "3-4 hours", price: 400 },
+        { name: "Thigh Length Medium", duration: "3-4 hours", price: 430 },
+        { name: "Thigh Length Small", duration: "3-4 hours", price: 475 }
       ]
     },
     "Butterfly/Distressed Locs": {
       starting: 200,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 200 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 230 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 250 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 250 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 285 },
-        { name: "Waist Length Small", duration: "45 min", price: 300 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 330 },
-        { name: "Waist Length Large", duration: "45 min", price: 345 },
-        { name: "Waist Length Medium", duration: "45 min", price: 360 },
-        { name: "Thigh Length Large", duration: "45 min", price: 440 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 460 },
-        { name: "Thigh Length Small", duration: "45 min", price: 475 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 200 },
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 230 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 250 },
+        { name: "Mid Back Length Large", duration: "3-4 hours", price: 250 },
+        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 285 },
+        { name: "Waist Length Small", duration: "3-4 hours", price: 300 },
+        { name: "Mid Back Length Small", duration: "3-4 hours", price: 330 },
+        { name: "Waist Length Large", duration: "3-4 hours", price: 345 },
+        { name: "Waist Length Medium", duration: "3-4 hours", price: 360 },
+        { name: "Thigh Length Large", duration: "3-4 hours", price: 440 },
+        { name: "Thigh Length Medium", duration: "3-4 hours", price: 460 },
+        { name: "Thigh Length Small", duration: "3-4 hours", price: 475 }
       ]
     },
     "Bohemian Locs": {
       starting: 225,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 225 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 250 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 265 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 275 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 285 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 300 },
-        { name: "Waist Length Large", duration: "45 min", price: 300 },
-        { name: "Waist Length Medium", duration: "45 min", price: 325 },
-        { name: "Waist Length Small", duration: "45 min", price: 350 },
-        { name: "Thigh Length Small", duration: "45 min", price: 350 },
-        { name: "Thigh Length Large", duration: "45 min", price: 400 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 425 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 225 },
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 250 },
+        { name: "Mid Back Length Large", duration: "3-4 hours", price: 265 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 275 },
+        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 285 },
+        { name: "Mid Back Length Small", duration: "3-4 hours", price: 300 },
+        { name: "Waist Length Large", duration: "3-4 hours", price: 300 },
+        { name: "Waist Length Medium", duration: "3-4 hours", price: 325 },
+        { name: "Waist Length Small", duration: "3-4 hours", price: 350 },
+        { name: "Thigh Length Small", duration: "3-4 hours", price: 350 },
+        { name: "Thigh Length Large", duration: "3-4 hours", price: 400 },
+        { name: "Thigh Length Medium", duration: "3-4 hours", price: 425 }
       ]
     }
   },
@@ -316,8 +316,8 @@ const SALON_DATA = {
     "Crotchet with Pre Looped Hair": {
       starting: 160,
       variations: [
-        { name: "Any Length Large", duration: "45 min", price: 160 },
-        { name: "Any Length Medium/Small", duration: "45 min", price: 185 }
+        { name: "Any Length Large", duration: "3-4 hours", price: 160 },
+        { name: "Any Length Medium/Small", duration: "3-4 hours", price: 185 }
       ]
     }
   },
@@ -325,13 +325,13 @@ const SALON_DATA = {
     "Starter Locs": {
       starting: 90,
       variations: [
-        { name: "Standard", duration: "45 min", price: 90 }
+        { name: "Standard", duration: "3-4 hours", price: 90 }
       ]
     },
     "Loc Takedown": {
       starting: 65,
       variations: [
-        { name: "Standard", duration: "45 min", price: 65 }
+        { name: "Standard", duration: "3-4 hours", price: 65 }
       ]
     }
   },
@@ -339,20 +339,20 @@ const SALON_DATA = {
     "Kid's Box Braids": {
       starting: 80,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 80 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 100 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 125 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 125 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 140 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 150 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 80 },
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 100 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 125 },
+        { name: "Mid Back Length Large", duration: "3-4 hours", price: 125 },
+        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 140 },
+        { name: "Mid Back Length Small", duration: "3-4 hours", price: 150 }
       ]
     },
     "Kid's Ponytail Buns": {
       starting: 75,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 75 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 140 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 150 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 75 },
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 140 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 150 }
       ]
     }
   },
@@ -360,18 +360,18 @@ const SALON_DATA = {
     "Cornrow Updo": {
       starting: 80,
       variations: [
-        { name: "Shoulder Length Large", duration: "45 min", price: 80 },
-        { name: "Shoulder Length Medium", duration: "45 min", price: 95 },
-        { name: "Shoulder Length Small", duration: "45 min", price: 100 },
-        { name: "Mid Back Length Large", duration: "45 min", price: 100 },
-        { name: "Mid Back Length Medium", duration: "45 min", price: 110 },
-        { name: "Mid Back Length Small", duration: "45 min", price: 125 },
-        { name: "Waist Length Large", duration: "45 min", price: 130 },
-        { name: "Waist Length Medium", duration: "45 min", price: 140 },
-        { name: "Waist Length Small", duration: "45 min", price: 150 },
-        { name: "Thigh Length Large", duration: "45 min", price: 165 },
-        { name: "Thigh Length Medium", duration: "45 min", price: 170 },
-        { name: "Thigh Length Small", duration: "45 min", price: 185 }
+        { name: "Shoulder Length Large", duration: "3-4 hours", price: 80 },
+        { name: "Shoulder Length Medium", duration: "3-4 hours", price: 95 },
+        { name: "Shoulder Length Small", duration: "3-4 hours", price: 100 },
+        { name: "Mid Back Length Large", duration: "3-4 hours", price: 100 },
+        { name: "Mid Back Length Medium", duration: "3-4 hours", price: 110 },
+        { name: "Mid Back Length Small", duration: "3-4 hours", price: 125 },
+        { name: "Waist Length Large", duration: "3-4 hours", price: 130 },
+        { name: "Waist Length Medium", duration: "3-4 hours", price: 140 },
+        { name: "Waist Length Small", duration: "3-4 hours", price: 150 },
+        { name: "Thigh Length Large", duration: "3-4 hours", price: 165 },
+        { name: "Thigh Length Medium", duration: "3-4 hours", price: 170 },
+        { name: "Thigh Length Small", duration: "3-4 hours", price: 185 }
       ]
     }
   },
@@ -379,7 +379,7 @@ const SALON_DATA = {
     "Bantu Knots": {
       starting: 65,
       variations: [
-        { name: "Standard", duration: "45 min", price: 65 }
+        { name: "Standard", duration: "3-4 hours", price: 65 }
       ]
     }
   }
